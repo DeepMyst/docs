@@ -44,8 +44,9 @@
           }
         ]
       }
-    ],
-    "global": {
+    ]
+  },
+  "global": {
     "anchors": [
       {
         "anchor": "Get API Key",
