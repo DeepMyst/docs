@@ -17,7 +17,7 @@ DeepMyst is an intelligent LLM gateway that enhances AI interactions through adv
     Automatically route queries to the optimal LLM based on query type, complexity, and capabilities
   </Card>
   <Card title="Token Optimization" icon="compress" href="/features/optimization">
-    Reduce token usage by up to 75% with our conversational level of detail technology
+    Reduce token usage by up to 75% with our suffix-array compression technology
   </Card>
   <Card title="Enhanced Reasoning" icon="brain" href="/features/reasoning">
     Apply advanced reasoning techniques to improve response quality
@@ -38,9 +38,22 @@ Before using DeepMyst, you'll need to sign up for an account:
 
 > **Note**: DeepMyst securely stores your provider API keys and uses them to process requests. This allows DeepMyst to route and optimize queries through your existing model provider accounts.
 
-### 2. Use Your DeepMyst API Key
+### 2. Generate Your DeepMyst API Key
 
-Once your account is set up and provider keys are added, integrate DeepMyst into your workflow with our OpenAI-compatible API gateway. **No new libraries needed** - just use your existing OpenAI SDK!
+You'll need a DeepMyst API key to authenticate your requests:
+
+1. In the DeepMyst dashboard, navigate to the [API Connection](https://deepmyst.com/get-started) or "Get Started" page
+2. Click on "Generate API Key"
+3. Copy the generated key and store it securely
+4. You'll use this key in all your requests to the DeepMyst API
+
+<img src="/images/api-connection-page.png" alt="DeepMyst API Connection Page" />
+
+> **Important**: Your DeepMyst API key is different from your provider keys. The DeepMyst key authenticates you to the DeepMyst service, while your provider keys allow DeepMyst to make calls to various AI models on your behalf.
+
+### 3. Use Your DeepMyst API Key
+
+Once your account is set up, provider keys are added, and you've generated your DeepMyst API key, you can integrate DeepMyst into your workflow with our OpenAI-compatible API gateway. **No new libraries needed** - just use your existing OpenAI SDK!
 
 ```python
 # Using the official OpenAI Python library
@@ -48,8 +61,8 @@ from openai import OpenAI
 
 # Just change the base URL and API key - keep your code the same!
 client = OpenAI(
-    api_key="your-deepmyst-api-key",  # Your DeepMyst API key from the dashboard
-    base_url="https://api.deepmyst.ai/v1"  # DeepMyst endpoint
+    api_key="your-deepmyst-api-key",  # Your DeepMyst API key from Step 2
+    base_url="https://api.deepmyst.com/v1"  # DeepMyst endpoint
 )
 
 # Use the client exactly as you would with OpenAI
@@ -77,7 +90,7 @@ from openai import OpenAI
 
 client = OpenAI(
     api_key="your-deepmyst-api-key",
-    base_url="https://api.deepmyst.ai/v1"
+    base_url="https://api.deepmyst.com/v1"
 )
 
 # Just add -optimize to the model name
@@ -98,7 +111,7 @@ from openai import OpenAI
 
 client = OpenAI(
     api_key="your-deepmyst-api-key",
-    base_url="https://api.deepmyst.ai/v1"
+    base_url="https://api.deepmyst.com/v1"
 )
 
 # Use Chain-of-Thought (default reasoning technique)
@@ -127,7 +140,7 @@ from openai import OpenAI
 
 client = OpenAI(
     api_key="your-deepmyst-api-key",
-    base_url="https://api.deepmyst.ai/v1"
+    base_url="https://api.deepmyst.com/v1"
 )
 
 # Let DeepMyst automatically select the best model
@@ -167,7 +180,7 @@ from openai import OpenAI
 
 client = OpenAI(
     api_key="your-deepmyst-api-key",
-    base_url="https://api.deepmyst.ai/v1"
+    base_url="https://api.deepmyst.com/v1"
 )
 
 # Combine optimization, reasoning, and auto-routing
