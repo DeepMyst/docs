@@ -31,17 +31,17 @@
     "anchors": [
       {
         "anchor": "Get API Key",
-        "href": "https://deepmyst.com/get-started",
+        "href": "https://deepmyst-frontend.onrender.com/get-started",
         "icon": "key"
       },
       {
-        "anchor": "Add Model Keys",
-        "href": "https://deepmyst.com/model-keys",
+        "anchor": "Manage Model Keys",
+        "href": "https://deepmyst-frontend.onrender.com/model-keys",
         "icon": "key-skeleton"
       },
       {
-        "anchor": "Playgrounds",
-        "href": "https://deepmyst.com/plsygrounds",
+        "anchor": "Playground",
+        "href": "https://deepmyst-playgrounds.onrender.com/",
         "icon": "flask"
       },
       {
