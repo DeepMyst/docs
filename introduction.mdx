@@ -17,7 +17,7 @@ DeepMyst is an intelligent LLM gateway that enhances AI interactions through adv
     Automatically route queries to the optimal LLM based on query type, complexity, and capabilities
   </Card>
   <Card title="Token Optimization" icon="compress" href="/features/optimization">
-    Reduce token usage by up to 75% with our suffix-array compression technology
+    Reduce token usage by up to 75% with our conversational level of detail technology
   </Card>
   <Card title="Enhanced Reasoning" icon="brain" href="/features/reasoning">
     Apply advanced reasoning techniques to improve response quality
@@ -26,34 +26,41 @@ DeepMyst is an intelligent LLM gateway that enhances AI interactions through adv
 
 ## Getting Started
 
-Integrate DeepMyst into your workflow in minutes with our API-compatible gateway.
+### 1. Sign Up for DeepMyst
 
-### Installation
+Before using DeepMyst, you'll need to sign up for an account:
 
-```bash
-# Coming soon: DeepMyst CLI
-npm install -g deepmyst-cli
-```
+1. Visit [app.deepmyst.ai](https://app.deepmyst.ai) to create your account
+2. Go through the onboarding wizard or navigate to the "Model Keys" section in the sidebar
+3. Add your existing API keys for each model provider you want to use (OpenAI, Anthropic, Google, Groq, etc.)
 
-### Basic Usage
+<img src="/images/model-keys-page.png" alt="DeepMyst Model Keys Page" />
 
-DeepMyst supports standard LLM API formats with special flags that unlock advanced capabilities.
+> **Note**: DeepMyst securely stores your provider API keys and uses them to process requests. This allows DeepMyst to route and optimize queries through your existing model provider accounts.
+
+### 2. Use Your DeepMyst API Key
+
+Once your account is set up and provider keys are added, integrate DeepMyst into your workflow with our OpenAI-compatible API gateway. **No new libraries needed** - just use your existing OpenAI SDK!
 
 ```python
-import requests
+# Using the official OpenAI Python library
+from openai import OpenAI
 
-response = requests.post(
-    "https://api.deepmyst.ai/v1/chat/completions",
-    headers={"Authorization": f"Bearer {YOUR_API_KEY}"},
-    json={
-        "model": "gpt-4o-mini",  # Use any supported model
-        "messages": [
-            {"role": "user", "content": "Explain quantum computing"}
-        ]
-    }
+# Just change the base URL and API key - keep your code the same!
+client = OpenAI(
+    api_key="your-deepmyst-api-key",  # Your DeepMyst API key from the dashboard
+    base_url="https://api.deepmyst.ai/v1"  # DeepMyst endpoint
 )
 
-print(response.json())
+# Use the client exactly as you would with OpenAI
+response = client.chat.completions.create(
+    model="gpt-4o-mini",  # Use any supported model
+    messages=[
+        {"role": "user", "content": "Explain quantum computing"}
+    ]
+)
+
+print(response.choices[0].message.content)
 ```
 
 ## Advanced Capabilities
@@ -65,16 +72,20 @@ DeepMyst extends standard LLM functionality with powerful flags that transform h
 Add the `-optimize` flag to any model name to automatically reduce token usage while preserving content quality:
 
 ```python
-# Standard request with token optimization
-response = requests.post(
-    "https://api.deepmyst.ai/v1/chat/completions",
-    headers={"Authorization": f"Bearer {YOUR_API_KEY}"},
-    json={
-        "model": "gpt-4o-mini-optimize",  # Note the -optimize flag
-        "messages": [
-            {"role": "user", "content": "Explain the history of artificial intelligence"}
-        ]
-    }
+# Using the OpenAI client with token optimization
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="your-deepmyst-api-key",
+    base_url="https://api.deepmyst.ai/v1"
+)
+
+# Just add -optimize to the model name
+response = client.chat.completions.create(
+    model="gpt-4o-mini-optimize",  # Note the -optimize flag
+    messages=[
+        {"role": "user", "content": "Explain the history of artificial intelligence"}
+    ]
 )
 ```
 
@@ -83,28 +94,27 @@ response = requests.post(
 Apply advanced reasoning techniques to improve the LLM's problem-solving capabilities:
 
 ```python
-# Use Chain-of-Thought (default)
-response = requests.post(
-    "https://api.deepmyst.ai/v1/chat/completions",
-    headers={"Authorization": f"Bearer {YOUR_API_KEY}"},
-    json={
-        "model": "gpt-4o-mini-reason",  # Default reasoning mode (COT)
-        "messages": [
-            {"role": "user", "content": "Solve this logic puzzle: If all blues are greens and no yellows are greens, then..."}
-        ]
-    }
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="your-deepmyst-api-key",
+    base_url="https://api.deepmyst.ai/v1"
 )
 
-# Specify a reasoning technique
-response = requests.post(
-    "https://api.deepmyst.ai/v1/chat/completions",
-    headers={"Authorization": f"Bearer {YOUR_API_KEY}"},
-    json={
-        "model": "gpt-4o-mini-reason-TOT",  # Use Tree-of-Thought reasoning
-        "messages": [
-            {"role": "user", "content": "What's the most efficient algorithm for this problem?"}
-        ]
-    }
+# Use Chain-of-Thought (default reasoning technique)
+response = client.chat.completions.create(
+    model="gpt-4o-mini-reason",  # Default reasoning mode (COT)
+    messages=[
+        {"role": "user", "content": "Solve this logic puzzle: If all blues are greens and no yellows are greens, then..."}
+    ]
+)
+
+# Specify a different reasoning technique
+response = client.chat.completions.create(
+    model="gpt-4o-mini-reason-TOT",  # Use Tree-of-Thought reasoning
+    messages=[
+        {"role": "user", "content": "What's the most efficient algorithm for this problem?"}
+    ]
 )
 ```
 
@@ -113,15 +123,19 @@ response = requests.post(
 Let DeepMyst choose the best model for your query:
 
 ```python
-response = requests.post(
-    "https://api.deepmyst.ai/v1/chat/completions",
-    headers={"Authorization": f"Bearer {YOUR_API_KEY}"},
-    json={
-        "model": "DeepMyst-auto",  # Automatic model selection
-        "messages": [
-            {"role": "user", "content": "Create a Python function to analyze sales data"}
-        ]
-    }
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="your-deepmyst-api-key",
+    base_url="https://api.deepmyst.ai/v1"
+)
+
+# Let DeepMyst automatically select the best model
+response = client.chat.completions.create(
+    model="DeepMyst-auto",  # Automatic model selection
+    messages=[
+        {"role": "user", "content": "Create a Python function to analyze sales data"}
+    ]
 )
 ```
 
@@ -149,16 +163,19 @@ DeepMyst provides access to a wide range of models from leading providers:
 DeepMyst capabilities can be combined for even more powerful results:
 
 ```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="your-deepmyst-api-key",
+    base_url="https://api.deepmyst.ai/v1"
+)
+
 # Combine optimization, reasoning, and auto-routing
-response = requests.post(
-    "https://api.deepmyst.ai/v1/chat/completions",
-    headers={"Authorization": f"Bearer {YOUR_API_KEY}"},
-    json={
-        "model": "DeepMyst-auto-optimize-reason-TOT",
-        "messages": [
-            {"role": "user", "content": "Design a system architecture for a high-throughput payment processing service"}
-        ]
-    }
+response = client.chat.completions.create(
+    model="DeepMyst-auto-optimize-reason-TOT",
+    messages=[
+        {"role": "user", "content": "Design a system architecture for a high-throughput payment processing service"}
+    ]
 )
 ```
 
