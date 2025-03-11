@@ -42,12 +42,8 @@
           "anchor": "Playground",
           "href": "https://deepmyst-playgrounds.onrender.com/",
           "icon": "flask"
-        },
-        {
-          "anchor": "Chat",
-          "href": "https://deepmyst.com/chat",
-          "icon": "message"
         }
+       
       ]
     }
   },
