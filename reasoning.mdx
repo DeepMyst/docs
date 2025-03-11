@@ -1,0 +1,276 @@
+---
+title: "Enhanced Reasoning"
+description: "Improve LLM responses with advanced reasoning techniques"
+---
+
+DeepMyst's enhanced reasoning capabilities enable LLMs to solve complex problems more effectively by applying structured thinking approaches to their response generation process.
+
+## Understanding Enhanced Reasoning
+
+Traditional LLM responses sometimes lack the careful step-by-step reasoning needed for complex problems. DeepMyst addresses this by implementing various reasoning frameworks that guide models through more structured thought processes, resulting in more accurate, logical, and comprehensive responses.
+
+<img src="/images/reasoning-comparison.png" alt="Comparison of standard vs. enhanced reasoning" />
+
+## Benefits of Enhanced Reasoning
+
+<CardGroup cols={2}>
+  <Card title="Improved Accuracy" icon="bullseye">
+    Reduce errors in complex reasoning tasks like math problems and logic puzzles
+  </Card>
+  <Card title="Better Problem-Solving" icon="chess">
+    Enable more sophisticated approaches to multi-step problems
+  </Card>
+  <Card title="Structured Responses" icon="sitemap">
+    Get clearer, more organized explanations of complex topics
+  </Card>
+  <Card title="Transparent Thinking" icon="lightbulb">
+    See the model's thought process, not just the final answer
+  </Card>
+</CardGroup>
+
+## Available Reasoning Techniques
+
+DeepMyst supports multiple reasoning techniques, each optimized for different types of tasks:
+
+### Chain-of-Thought (COT)
+
+The default reasoning technique that guides the model to break down problems into sequential steps:
+
+```python
+# Using Chain-of-Thought reasoning (default)
+response = client.chat.completions.create(
+    model="gpt-4o-mini-reason",  # The -reason flag enables COT by default
+    messages=[
+        {"role": "user", "content": "If Sarah has 5 apples and gives 2 to Tom, then buys 3 more and gives half of her apples to Lisa, how many apples does Sarah have left?"}
+    ]
+)
+```
+
+### Tree-of-Thought (TOT)
+
+Explores multiple reasoning paths simultaneously and selects the most promising one:
+
+```python
+# Using Tree-of-Thought reasoning
+response = client.chat.completions.create(
+    model="gpt-4o-mini-reason-TOT",  # Specify TOT reasoning
+    messages=[
+        {"role": "user", "content": "Find the most efficient algorithm for sorting a nearly-sorted array."}
+    ]
+)
+```
+
+### Graph-of-Thought (GOT)
+
+Creates a network of interconnected concepts to solve problems with many related components:
+
+```python
+# Using Graph-of-Thought reasoning
+response = client.chat.completions.create(
+    model="claude-3-opus-reason-GOT",
+    messages=[
+        {"role": "user", "content": "Analyze how changes in interest rates affect different sectors of the economy."}
+    ]
+)
+```
+
+### Self-Consistency (SC)
+
+Generates multiple independent solutions and identifies the most consistent answer:
+
+```python
+# Using Self-Consistency reasoning
+response = client.chat.completions.create(
+    model="gpt-4o-reason-SC",
+    messages=[
+        {"role": "user", "content": "Solve this probability problem: In a class of 30 students, what's the probability that at least two students share the same birthday?"}
+    ]
+)
+```
+
+### Iterative Hierarchy-of-Thought (IHoT)
+
+Tackles problems by breaking them into hierarchical sub-problems:
+
+```python
+# Using Iterative Hierarchy-of-Thought reasoning
+response = client.chat.completions.create(
+    model="gpt-4o-reason-IHoT",
+    messages=[
+        {"role": "user", "content": "Design a comprehensive system architecture for an e-commerce platform."}
+    ]
+)
+```
+
+### Recursive Thinking (RT)
+
+Applies repeated reasoning steps to increasingly refined versions of a problem:
+
+```python
+# Using Recursive Thinking reasoning
+response = client.chat.completions.create(
+    model="claude-3-haiku-reason-RT",
+    messages=[
+        {"role": "user", "content": "Write a recursive algorithm to find all permutations of a string."}
+    ]
+)
+```
+
+### Goal-Action-Trace (GAT)
+
+Sets clear goals, defines actions to achieve them, and traces progress:
+
+```python
+# Using Goal-Action-Trace reasoning
+response = client.chat.completions.create(
+    model="gemini-1.5-pro-reason-GAT",
+    messages=[
+        {"role": "user", "content": "Plan a marketing strategy for a new sustainable fashion brand."}
+    ]
+)
+```
+
+### Reinforced Logic Reasoning (RLR)
+
+Emphasizes logical validity and consistency in each step:
+
+```python
+# Using Reinforced Logic Reasoning
+response = client.chat.completions.create(
+    model="gpt-4o-reason-RLR",
+    messages=[
+        {"role": "user", "content": "Evaluate this logical argument: All men are mortal. Socrates is a man. Therefore, Socrates is mortal."}
+    ]
+)
+```
+
+### Hybrid Graph-Numerical Thinking (HGNT)
+
+Combines graphical representation with numerical precision:
+
+```python
+# Using Hybrid Graph-Numerical Thinking
+response = client.chat.completions.create(
+    model="claude-3-opus-reason-HGNT",
+    messages=[
+        {"role": "user", "content": "Analyze this network flow problem with capacity constraints on each edge."}
+    ]
+)
+```
+
+## Choosing the Right Reasoning Technique
+
+Different reasoning techniques excel at different types of problems:
+
+| Reasoning Technique | Best For | Example Task |
+|---------------------|----------|--------------|
+| Chain-of-Thought (COT) | General problem-solving, step-by-step reasoning | Math word problems, logical puzzles |
+| Tree-of-Thought (TOT) | Problems with multiple potential approaches | Complex coding tasks, strategic planning |
+| Graph-of-Thought (GOT) | Interconnected concepts, relational reasoning | System analysis, causal relationships |
+| Self-Consistency (SC) | Probabilistic problems, verification | Math proofs, probability questions |
+| Iterative Hierarchy-of-Thought (IHoT) | Complex systems, hierarchical structures | Software architecture, organization design |
+| Recursive Thinking (RT) | Nested problems, pattern recognition | Recursive algorithms, fractal analysis |
+| Goal-Action-Trace (GAT) | Planning, procedural tasks | Project planning, strategy development |
+| Reinforced Logic Reasoning (RLR) | Formal logic, argument analysis | Logical fallacies, philosophical arguments |
+| Hybrid Graph-Numerical Thinking (HGNT) | Quantitative problems with graphical elements | Network analysis, flow problems |
+
+If you're unsure which technique to use, DeepMyst can automatically select the most appropriate one:
+
+```python
+# Let DeepMyst select the best reasoning technique
+response = client.chat.completions.create(
+    model="gpt-4o-reason-auto",
+    messages=[
+        {"role": "user", "content": "What's the most efficient way to find the kth smallest element in an unsorted array?"}
+    ]
+)
+```
+
+## Combining with Other DeepMyst Features
+
+Enhanced reasoning can be combined with other DeepMyst features for even better results:
+
+### With Token Optimization
+
+```python
+# Combine reasoning with token optimization
+response = client.chat.completions.create(
+    model="gpt-4o-reason-optimize",
+    messages=[
+        {"role": "user", "content": "Explain quantum computing principles and their applications in cryptography."}
+    ]
+)
+```
+
+### With Automatic Model Selection
+
+```python
+# Use reasoning with the optimal model
+response = client.chat.completions.create(
+    model="DeepMyst-auto-reason",
+    messages=[
+        {"role": "user", "content": "Design an algorithm to efficiently find duplicate files across a network."}
+    ]
+)
+```
+
+### With Specific Techniques and Priorities
+
+```python
+# Use Tree-of-Thought reasoning with optimal model, prioritizing performance
+response = client.chat.completions.create(
+    model="DeepMyst-auto-performance-reason-TOT",
+    messages=[
+        {"role": "user", "content": "What's the optimal strategy for the prisoner's dilemma when played repeatedly?"}
+    ]
+)
+```
+
+## Reasoning Analytics
+
+The DeepMyst dashboard provides insights into your use of enhanced reasoning:
+
+<img src="/images/reasoning-analytics.png" alt="DeepMyst Reasoning Analytics" />
+
+These analytics help you understand:
+- Which reasoning techniques are most effective for your use cases
+- How reasoning affects response quality and token usage
+- Performance differences between reasoning techniques
+
+## Implementation Best Practices
+
+To maximize the benefits of enhanced reasoning:
+
+1. **Match technique to task**: Choose reasoning techniques based on the problem type
+2. **Structure complex queries**: Clearly define the problem and expected format
+3. **Use auto-selection**: When in doubt, let DeepMyst choose the best reasoning approach
+4. **Balance with optimization**: Consider token usage impacts when using reasoning techniques
+5. **Review reasoning steps**: Analyze the model's thought process to identify and correct flaws
+
+## Real-World Applications
+
+Enhanced reasoning is particularly valuable for:
+
+- **Educational tools**: Explain complex concepts with step-by-step reasoning
+- **Financial analysis**: Work through multi-factor investment decisions
+- **Scientific research**: Break down complex hypotheses and experimental designs
+- **Software development**: Design algorithms and debug complex code
+- **Strategic planning**: Evaluate multiple approaches to business challenges
+- **Medical diagnosis**: Work through differential diagnoses systematically
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Reasoning Techniques" icon="sitemap" href="/features/reasoning/techniques">
+    Detailed guide to each reasoning method
+  </Card>
+  <Card title="Best Practices" icon="clipboard-check" href="/features/reasoning/best-practices">
+    Tips for optimal use of reasoning
+  </Card>
+  <Card title="Reasoning API" icon="code" href="/api-reference/reasoning">
+    Complete API documentation for reasoning features
+  </Card>
+  <Card title="Case Studies" icon="building" href="/case-studies/reasoning">
+    Real-world examples of enhanced reasoning
+  </Card>
+</CardGroup>

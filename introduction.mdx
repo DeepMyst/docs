@@ -3,12 +3,30 @@ title: "Introduction to DeepMyst"
 description: "Intelligent routing, optimization, and reasoning for LLM workflows"
 ---
 
-<img alt="DeepMyst Hero Light" className="block dark:hidden" src="/images/hero-light.png" />
-<img alt="DeepMyst Hero Dark" className="hidden dark:block" src="/images/hero-dark.png" />
+<img alt="DeepMyst Hero Light" className="block dark:hidden" src="/images/deepmyst-hero-light.png" />
+<img alt="DeepMyst Hero Dark" className="hidden dark:block" src="/images/deepmyst-hero-dark.png" />
 
 ## What is DeepMyst?
 
 DeepMyst is an intelligent LLM gateway that enhances AI interactions through advanced routing, token optimization, and reasoning capabilities. By intelligently directing queries to the most appropriate model and optimizing tokens, DeepMyst helps you achieve better results while reducing costs.
+
+Our platform serves as a unified API layer that connects to all major LLM providers, enabling you to access the best models for each task while maintaining a single, consistent integration point. DeepMyst requires no new libraries or major code changes - simply redirect your existing OpenAI SDK calls to our API endpoint.
+
+## Why DeepMyst?
+
+Traditional LLM implementations face several challenges:
+
+- **Cost inefficiency**: Using high-performance models for every query leads to unnecessary expenses
+- **Token waste**: Standard implementations don't optimize token usage, resulting in higher costs
+- **Quality inconsistency**: Different models excel at different tasks, but selecting the right one is complex
+- **Integration complexity**: Managing multiple model providers requires maintaining separate integrations
+
+DeepMyst addresses these challenges by providing:
+
+- **Intelligent routing** that matches each query with the optimal model
+- **Token optimization** that reduces costs without sacrificing quality
+- **Enhanced reasoning** that improves response accuracy and relevance
+- **Unified API** that works with your existing code and libraries
 
 ## Key Features
 
@@ -24,133 +42,33 @@ DeepMyst is an intelligent LLM gateway that enhances AI interactions through adv
   </Card>
 </CardGroup>
 
-## Getting Started
+## How DeepMyst Works
 
-### 1. Sign Up for DeepMyst
+DeepMyst operates as an intelligent middleware layer between your application and various LLM providers:
 
-Before using DeepMyst, you'll need to sign up for an account:
+1. **Request Processing**: When you send a request to DeepMyst, our system analyzes the query to understand its content, complexity, and required capabilities.
 
-1. Visit [deepmyst.com](https://deepmyst.com) to create your account
-2. Go through the onboarding wizard or navigate to the [Model Keys](https://deepmyst.com/model-keys) section in the sidebar
-3. Add your existing API keys for each model provider you want to use (OpenAI, Anthropic, Google, Groq, etc.)
+2. **Model Selection**: Based on this analysis, DeepMyst either routes to the model you specified or, if using auto-routing, selects the optimal model from your connected providers.
 
-<img src="/images/model-keys.png" alt="DeepMyst Model Keys Page" />
+3. **Token Optimization**: If enabled, DeepMyst applies sophisticated compression techniques to reduce token usage while preserving content quality.
 
-> **Note**: DeepMyst securely stores your provider API keys and uses them to process requests. This allows DeepMyst to route and optimize queries through your existing model provider accounts.
+4. **Reasoning Enhancement**: When reasoning flags are applied, DeepMyst enhances the model's problem-solving approach using specialized techniques like Chain-of-Thought or Tree-of-Thought.
 
-### 2. Generate Your DeepMyst API Key
+5. **Response Delivery**: The optimized response is returned through the familiar OpenAI-compatible API format, ready for integration into your application.
 
-You'll need a DeepMyst API key to authenticate your requests:
+## Benefits
 
-1. In the DeepMyst dashboard, navigate to the [API Connection](https://deepmyst.com/get-started) or "Get Started" page
-2. Click on "Generate API Key"
-3. Copy the generated key and store it securely
-4. You'll use this key in all your requests to the DeepMyst API
-
-<img src="/images/api-connection-page.png" alt="DeepMyst API Connection Page" />
-
-> **Important**: Your DeepMyst API key is different from your provider keys. The DeepMyst key authenticates you to the DeepMyst service, while your provider keys allow DeepMyst to make calls to various AI models on your behalf.
-
-### 3. Use Your DeepMyst API Key
-
-Once your account is set up, provider keys are added, and you've generated your DeepMyst API key, you can integrate DeepMyst into your workflow with our OpenAI-compatible API gateway. **No new libraries needed** - just use your existing OpenAI SDK!
-
-```python
-# Using the official OpenAI Python library
-from openai import OpenAI
-
-# Just change the base URL and API key - keep your code the same!
-client = OpenAI(
-    api_key="your-deepmyst-api-key",  # Your DeepMyst API key from Step 2
-    base_url="https://api.deepmyst.com/v1"  # DeepMyst endpoint
-)
-
-# Use the client exactly as you would with OpenAI
-response = client.chat.completions.create(
-    model="gpt-4o-mini",  # Use any supported model
-    messages=[
-        {"role": "user", "content": "Explain quantum computing"}
-    ]
-)
-
-print(response.choices[0].message.content)
-```
-
-## Advanced Capabilities
-
-DeepMyst extends standard LLM functionality with powerful flags that transform how your AI interacts with users.
-
-### Token Optimization
-
-Add the `-optimize` flag to any model name to automatically reduce token usage while preserving content quality:
-
-```python
-# Using the OpenAI client with token optimization
-from openai import OpenAI
-
-client = OpenAI(
-    api_key="your-deepmyst-api-key",
-    base_url="https://api.deepmyst.com/v1"
-)
-
-# Just add -optimize to the model name
-response = client.chat.completions.create(
-    model="gpt-4o-mini-optimize",  # Note the -optimize flag
-    messages=[
-        {"role": "user", "content": "Explain the history of artificial intelligence"}
-    ]
-)
-```
-
-### Enhanced Reasoning
-
-Apply advanced reasoning techniques to improve the LLM's problem-solving capabilities:
-
-```python
-from openai import OpenAI
-
-client = OpenAI(
-    api_key="your-deepmyst-api-key",
-    base_url="https://api.deepmyst.com/v1"
-)
-
-# Use Chain-of-Thought (default reasoning technique)
-response = client.chat.completions.create(
-    model="gpt-4o-mini-reason",  # Default reasoning mode (COT)
-    messages=[
-        {"role": "user", "content": "Solve this logic puzzle: If all blues are greens and no yellows are greens, then..."}
-    ]
-)
-
-# Specify a different reasoning technique
-response = client.chat.completions.create(
-    model="gpt-4o-mini-reason-TOT",  # Use Tree-of-Thought reasoning
-    messages=[
-        {"role": "user", "content": "What's the most efficient algorithm for this problem?"}
-    ]
-)
-```
-
-### Automatic Model Selection
-
-Let DeepMyst choose the best model for your query:
-
-```python
-from openai import OpenAI
-
-client = OpenAI(
-    api_key="your-deepmyst-api-key",
-    base_url="https://api.deepmyst.com/v1"
-)
-
-# Let DeepMyst automatically select the best model
-response = client.chat.completions.create(
-    model="DeepMyst-auto",  # Automatic model selection
-    messages=[
-        {"role": "user", "content": "Create a Python function to analyze sales data"}
-    ]
-)
-```
+<CardGroup cols={3}>
+  <Card title="Cost Reduction" icon="dollar-sign">
+    Save up to 65% on token costs without sacrificing quality
+  </Card>
+  <Card title="Performance Boost" icon="gauge-high">
+    Get better answers through intelligent routing and reasoning
+  </Card>
+  <Card title="Simplified Integration" icon="plug">
+    One API for all your LLM needs with standard compatibility
+  </Card>
+</CardGroup>
 
 ## Supported Models
 
@@ -171,54 +89,19 @@ DeepMyst provides access to a wide range of models from leading providers:
   </Card>
 </CardGroup>
 
-## Combining Capabilities
-
-DeepMyst capabilities can be combined for even more powerful results:
-
-```python
-from openai import OpenAI
-
-client = OpenAI(
-    api_key="your-deepmyst-api-key",
-    base_url="https://api.deepmyst.com/v1"
-)
-
-# Combine optimization, reasoning, and auto-routing
-response = client.chat.completions.create(
-    model="DeepMyst-auto-optimize-reason-TOT",
-    messages=[
-        {"role": "user", "content": "Design a system architecture for a high-throughput payment processing service"}
-    ]
-)
-```
-
-## Benefits
-
-<CardGroup cols={3}>
-  <Card title="Cost Reduction" icon="dollar-sign">
-    Save up to 65% on token costs without sacrificing quality
-  </Card>
-  <Card title="Performance Boost" icon="gauge-high">
-    Get better answers through intelligent routing and reasoning
-  </Card>
-  <Card title="Simplified Integration" icon="plug">
-    One API for all your LLM needs with standard compatibility
-  </Card>
-</CardGroup>
-
 ## Next Steps
 
 <CardGroup cols={2}>
-  <Card title="API Reference" icon="code" href="/api-reference">
-    Explore the complete DeepMyst API
+  <Card title="Getting Started" icon="rocket" href="/getting-started">
+    Set up your DeepMyst account and make your first API call
   </Card>
-  <Card title="Reasoning Techniques" icon="diagram-project" href="/features/reasoning/techniques">
-    Learn about the different reasoning modes
+  <Card title="Token Optimization" icon="file-contract" href="/features/optimization">
+    Learn how our token optimization reduces costs
   </Card>
-  <Card title="Token Optimization" icon="file-contract" href="/features/optimization/how-it-works">
-    Understand how our token optimization works
+  <Card title="Smart Routing" icon="sitemap" href="/features/routing">
+    Discover how our intelligent routing system works
   </Card>
-  <Card title="Router Algorithms" icon="sitemap" href="/features/routing/algorithm">
-    Deep dive into our intelligent routing system
+  <Card title="Enhanced Reasoning" icon="brain-circuit" href="/features/reasoning">
+    Explore different reasoning techniques to improve responses
   </Card>
 </CardGroup>

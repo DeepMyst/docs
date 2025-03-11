@@ -1,0 +1,173 @@
+---
+title: "Token Optimization"
+description: "Reduce token usage and lower costs without sacrificing quality"
+---
+
+DeepMyst's token optimization feature reduces the number of tokens used in your LLM interactions, lowering costs while preserving the quality of responses.
+
+## How Token Optimization Works
+
+DeepMyst employs advanced compression techniques that:
+
+1. **Identify Redundancies**: Our system analyzes message content to identify repeated phrases, patterns, and information
+2. **Compress Content**: Redundant content is intelligently compressed to reduce token count
+3. **Preserve Context**: Key information is maintained to ensure response quality isn't compromised
+4. **Restore Meaning**: The optimization is transparent to the model, allowing it to generate high-quality responses
+
+The result is significantly reduced token usage without sacrificing the quality of responses – saving you money while maintaining performance.
+
+## Benefits of Token Optimization
+
+<CardGroup cols={2}>
+  <Card title="Cost Reduction" icon="dollar-sign">
+    Reduce token usage by up to 75%, directly lowering your API costs
+  </Card>
+  <Card title="Preserved Quality" icon="star">
+    Maintain response quality while using fewer tokens
+  </Card>
+  <Card title="Longer Conversations" icon="comments">
+    Fit more context within token limits for extended dialogues
+  </Card>
+  <Card title="Faster Processing" icon="bolt">
+    Reduced token counts can lead to faster processing times
+  </Card>
+</CardGroup>
+
+## Using Token Optimization
+
+Enabling token optimization is as simple as adding the `-optimize` flag to any model name in your API request:
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="your-deepmyst-api-key",
+    base_url="https://api.deepmyst.ai/v1"
+)
+
+# Add the -optimize flag to the model name
+response = client.chat.completions.create(
+    model="gpt-4o-mini-optimize",  # Note the -optimize flag
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Explain the history of artificial intelligence"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+## Optimization Levels
+
+DeepMyst automatically applies the appropriate level of optimization based on context, but you can also specify a particular optimization level:
+
+```python
+# Specify optimization level (1-5, where 5 is maximum optimization)
+response = client.chat.completions.create(
+    model="gpt-4o-mini-optimize-3",  # Level 3 optimization
+    messages=[
+        {"role": "user", "content": "Summarize the key events of World War II"}
+    ]
+)
+```
+
+| Level | Description | Token Reduction | Use Case |
+|-------|-------------|-----------------|----------|
+| 1 | Light optimization | 10-25% | When maximum preservation is critical |
+| 2 | Balanced (Default) | 25-40% | General purpose optimization |
+| 3 | Enhanced | 40-55% | Good balance of savings and quality |
+| 4 | Aggressive | 55-70% | When cost savings are a priority |
+| 5 | Maximum | 70-75%+ | When maximum savings are required |
+
+## Real-World Examples
+
+Here are some real-world examples of token optimization in action:
+
+### Example 1: Long-Form Content
+
+**Without Optimization:**
+- Message size: 6,500 tokens
+- Response size: 1,200 tokens
+- Total tokens: 7,700
+- Cost (at $0.01/1K tokens): $0.077
+
+**With Optimization:**
+- Optimized message size: 2,200 tokens (66% reduction)
+- Response size: 1,200 tokens
+- Total tokens: 3,400
+- Cost: $0.034
+- **Savings: 56%**
+
+### Example 2: Conversation History
+
+**Without Optimization:**
+- 10-turn conversation: 12,000 tokens
+- New response: 800 tokens
+- Total tokens: 12,800
+- Cost (at $0.01/1K tokens): $0.128
+
+**With Optimization:**
+- Optimized conversation: 3,600 tokens (70% reduction)
+- New response: 800 tokens
+- Total tokens: 4,400
+- Cost: $0.044
+- **Savings: 65%**
+
+## Best Practices
+
+For maximum benefit from token optimization:
+
+1. **Use in multi-turn conversations**: The benefits compound as conversation history grows
+2. **Apply to information-dense queries**: Content with repetition and patterns benefits most
+3. **Balance with reasoning**: Combine optimization with reasoning techniques for complex tasks
+4. **Monitor quality**: Watch for any impact on response quality and adjust optimization level if needed
+5. **Preserve key instructions**: Keep important system messages and instructions clear and precise
+
+## Optimization Analytics
+
+The DeepMyst dashboard provides detailed analytics on your token optimization:
+
+<img src="/images/token-optimization-analytics.png" alt="Token Optimization Analytics Dashboard" />
+
+These analytics help you:
+- Track total tokens saved
+- Monitor cost reduction over time
+- Compare optimization effectiveness across different models
+- Identify opportunities for further optimization
+
+## When to Use Token Optimization
+
+Token optimization is particularly valuable for:
+
+- **Multi-turn conversations**: As context grows, so do the savings
+- **Long-form content processing**: When analyzing or generating extensive content
+- **High-volume applications**: Applications making many API calls
+- **Fixed-budget projects**: When working within strict cost constraints
+- **Context-window-limited scenarios**: When you need to fit more content within token limits
+
+## Implementation Tips
+
+To maximize the effectiveness of token optimization:
+
+1. **Start with balanced optimization**: Begin with the default optimization level
+2. **Test with your specific use cases**: Different content types benefit differently
+3. **Monitor quality metrics**: Ensure optimization doesn't impact critical outputs
+4. **Combine with other DeepMyst features**: Use alongside reasoning or routing for even better results
+5. **Apply selectively**: Use optimization where it makes the most sense for your workload
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Try Auto-Optimization" icon="sliders" href="/features/optimization/auto-optimization">
+    Learn about context-aware automatic optimization settings
+  </Card>
+  <Card title="Cost Analysis" icon="chart-line" href="/features/optimization/cost-analysis">
+    Estimate your potential savings with our calculator
+  </Card>
+  <Card title="API Reference" icon="code" href="/api-reference/optimization">
+    View detailed API documentation for optimization features
+  </Card>
+  <Card title="Case Studies" icon="building" href="/case-studies/optimization">
+    Real-world examples of optimization in production
+  </Card>
+</CardGroup>

@@ -1,0 +1,269 @@
+---
+title: "Smart Routing"
+description: "Automatically select the optimal LLM for each query based on task requirements"
+---
+
+DeepMyst's smart routing capabilities intelligently direct each query to the most appropriate LLM based on the query's characteristics, required capabilities, and your optimization preferences.
+
+## Why Smart Routing Matters
+
+Different LLMs excel at different tasks - some are better at creative writing, others at code generation, and others at mathematical reasoning. DeepMyst's router analyzes your queries and directs them to the most suitable model for each specific task, optimizing for performance, cost, or speed based on your preferences.
+
+<img src="/images/routing-diagram.png" alt="DeepMyst Smart Routing Diagram" />
+
+## How Smart Routing Works
+
+DeepMyst employs a sophisticated multi-step process for intelligent query routing:
+
+1. **Query Analysis**: Each incoming query is analyzed to determine its:
+   - Category (code, math, creative writing, etc.)
+   - Complexity level (easy, medium, hard)
+   - Required capabilities (reasoning, data analysis, etc.)
+
+2. **Model Evaluation**: The system evaluates available models based on:
+   - Performance benchmarks for the specific query category
+   - Token cost considerations
+   - Response latency requirements
+   - Capability support
+
+3. **Decision Algorithm**: A weighted scoring system considers:
+   - Performance (weighted higher for complex queries)
+   - Cost (weighted according to your budget preferences)
+   - Latency (weighted based on speed requirements)
+   - Capability match (ensuring all required capabilities are available)
+
+4. **Scoring and Selection**: Each eligible model receives a composite score based on the weighted factors, and the highest-scoring model is selected.
+
+5. **Optional Fallbacks**: If preferred models are unavailable, intelligent fallback options ensure reliability.
+
+## Using Smart Routing
+
+DeepMyst offers several ways to leverage smart routing in your applications:
+
+### 1. Automatic Model Selection
+
+Use the `DeepMyst-auto` model identifier to let DeepMyst's router automatically select the optimal model:
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="your-deepmyst-api-key",
+    base_url="https://api.deepmyst.ai/v1"
+)
+
+# Let DeepMyst automatically select the best model
+response = client.chat.completions.create(
+    model="DeepMyst-auto",  # Automatic model selection
+    messages=[
+        {"role": "user", "content": "Create a Python function to analyze sales data"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+### 2. Priority-Based Routing
+
+Specify which factor should be prioritized in the routing decision:
+
+```python
+# Prioritize performance (quality) over cost or speed
+response = client.chat.completions.create(
+    model="DeepMyst-auto-performance",
+    messages=[
+        {"role": "user", "content": "Write a creative short story about time travel"}
+    ]
+)
+
+# Prioritize cost-efficiency
+response = client.chat.completions.create(
+    model="DeepMyst-auto-cost",
+    messages=[
+        {"role": "user", "content": "Summarize the key points from this article"}
+    ]
+)
+
+# Prioritize speed
+response = client.chat.completions.create(
+    model="DeepMyst-auto-speed",
+    messages=[
+        {"role": "user", "content": "What's the capital of France?"}
+    ]
+)
+```
+
+### 3. Capability-Based Routing
+
+Explicitly specify required capabilities:
+
+```python
+# Ensure the selected model has strong mathematical capabilities
+response = client.chat.completions.create(
+    model="DeepMyst-auto",
+    messages=[
+        {"role": "user", "content": "Calculate the derivative of f(x) = x^3 + 2x^2 - 5x + 1"}
+    ],
+    required_capabilities=["mathematical"]
+)
+```
+
+### 4. Model Group Routing
+
+Route to the best model within a specific provider or model family:
+
+```python
+# Select the best OpenAI model
+response = client.chat.completions.create(
+    model="DeepMyst-auto-openai",
+    messages=[
+        {"role": "user", "content": "Explain how transformers work in machine learning"}
+    ]
+)
+
+# Select the best Claude model
+response = client.chat.completions.create(
+    model="DeepMyst-auto-anthropic",
+    messages=[
+        {"role": "user", "content": "Write a professional email requesting a meeting"}
+    ]
+)
+```
+
+## Routing Categories
+
+DeepMyst's router classifies queries into the following categories, each with specialized benchmarks:
+
+| Category | Description | Example Query |
+|----------|-------------|---------------|
+| `math` | Mathematical calculations and proofs | "Solve for x: 3x^2 + 2x - 5 = 0" |
+| `code` | Programming and software development | "Write a Python function to find prime numbers" |
+| `qa` | General question answering | "Who won the World Cup in 2018?" |
+| `reasoning` | Logical reasoning and deductions | "If all As are Bs, and some Bs are Cs, what can we say about As and Cs?" |
+| `creative_writing` | Stories, poetry, and creative content | "Write a short story about a time traveler" |
+| `summarization` | Condensing information | "Summarize the key points of this research paper" |
+| `instruction_following` | Following complex instructions | "Create a step-by-step guide to baking a cake" |
+| `multilingual` | Translation and cross-lingual tasks | "Translate this paragraph to Spanish" |
+| `knowledge_retrieval` | Factual information across domains | "Explain how photosynthesis works" |
+| `tool_usage` | Using tools and APIs | "Create a function that calls a weather API" |
+| `conversation` | Multi-turn dialogue | "Continue this conversation naturally" |
+
+## Detected Capabilities
+
+The router identifies these key capabilities required by queries:
+
+| Capability | Description |
+|------------|-------------|
+| `real-time` | Access to current information |
+| `function-calling` | Ability to call functions or tools |
+| `search` | Information retrieval capabilities |
+| `code-generation` | Programming and code creation |
+| `data-analysis` | Working with data and statistics |
+| `mathematical` | Complex mathematical operations |
+| `translation` | Language translation |
+| `reasoning` | Logical reasoning and inference |
+| `creative-content` | Creative and original content generation |
+| `summarization` | Condensing and extracting key information |
+| `instruction-following` | Following detailed or multi-step instructions |
+
+## Customizing Routing Behavior
+
+DeepMyst provides several ways to customize routing behavior for your specific needs:
+
+### Setting Default Routing Preferences
+
+In your DeepMyst dashboard, you can configure default routing preferences:
+
+1. Navigate to "Settings" > "Routing Preferences"
+2. Select your default priority (performance, cost, or speed)
+3. Adjust weight sliders to fine-tune the priority balance
+4. Set any provider restrictions or preferences
+5. Save your configuration
+
+<img src="/images/routing-preferences.png" alt="DeepMyst Routing Preferences" />
+
+### Per-Request Routing Overrides
+
+Override default routing settings for specific requests:
+
+```python
+# Override routing weights for this specific request
+response = client.chat.completions.create(
+    model="DeepMyst-auto",
+    messages=[
+        {"role": "user", "content": "Design a database schema for a hospital management system"}
+    ],
+    routing_preferences={
+        "performance_weight": 0.7,
+        "cost_weight": 0.2,
+        "speed_weight": 0.1,
+        "excluded_providers": ["groq"],
+        "preferred_providers": ["anthropic"]
+    }
+)
+```
+
+## Tracking Routing Decisions
+
+DeepMyst provides visibility into routing decisions through:
+
+### Dashboard Analytics
+
+The DeepMyst dashboard shows detailed routing analytics:
+
+<img src="/images/routing-analytics.png" alt="DeepMyst Routing Analytics" />
+
+These analytics help you understand:
+- Which models are being selected for different query types
+- Cost savings from optimal routing
+- Performance improvements from model selection
+- Routing patterns and trends over time
+
+### Request Metadata
+
+You can also access routing information programmatically:
+
+```python
+response = client.chat.completions.create(
+    model="DeepMyst-auto",
+    messages=[
+        {"role": "user", "content": "Explain the benefits of renewable energy"}
+    ],
+    return_routing_info=True  # Request routing metadata
+)
+
+# Access routing information
+routing_info = response.routing_info
+print(f"Selected model: {routing_info.selected_model}")
+print(f"Query category: {routing_info.query_category}")
+print(f"Required capabilities: {routing_info.required_capabilities}")
+print(f"Candidate models: {routing_info.candidate_models}")
+print(f"Decision factors: {routing_info.decision_factors}")
+```
+
+## Best Practices
+
+To get the most from DeepMyst's routing capabilities:
+
+1. **Use `DeepMyst-auto` for general queries**: Let the router intelligently select the best model
+2. **Add priority flags for specific needs**: Use `-performance`, `-cost`, or `-speed` when a particular factor is critical
+3. **Combine with optimization**: Use `DeepMyst-auto-optimize` to both select the optimal model and reduce token usage
+4. **Monitor routing decisions**: Review the dashboard to understand which models are being selected
+5. **Adjust preferences based on data**: Fine-tune routing preferences based on observed performance and cost outcomes
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Routing Algorithms" icon="microchip" href="/features/routing/algorithm">
+    Learn more about the technical details of our routing system
+  </Card>
+  <Card title="Custom Routing Rules" icon="sliders" href="/features/routing/custom-rules">
+    Create advanced routing rules for your specific use cases
+  </Card>
+  <Card title="Routing + Optimization" icon="arrows-maximize" href="/features/combined">
+    Discover how to combine routing with token optimization
+  </Card>
+  <Card title="API Reference" icon="code" href="/api-reference/routing">
+    View detailed API documentation for routing features
+  </Card>
+</CardGroup>
