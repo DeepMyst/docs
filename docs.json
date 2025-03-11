@@ -25,35 +25,31 @@
           }
         ]
       }
-    ]
-  },
-  "navbarActions": {
-    "links": [
-      {
-        "type": "link",
-        "icon": "key",
-        "href": "https://deepmyst-frontend.onrender.com/get-started",
-        "name": "Get API Key"
-      },
-      {
-        "type": "link",
-        "icon": "key-round",
-        "href": "https://deepmyst-frontend.onrender.com/model-keys",
-        "name": "Manage Model Keys"
-      },
-      {
-        "type": "link",
-        "icon": "flask",
-        "href": "https://deepmyst-playgrounds.onrender.com/",
-        "name": "Playground"
-      },
-      {
-        "type": "link",
-        "icon": "message",
-        "href": "https://deepmyst.com/chat",
-        "name": "Chat"
-      }
-    ]
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Get API Key",
+          "href": "https://deepmyst-frontend.onrender.com/get-started",
+          "icon": "key"
+        },
+        {
+          "anchor": "Manage Model Keys",
+          "href": "https://deepmyst-frontend.onrender.com/model-keys",
+          "icon": "key-round"
+        },
+        {
+          "anchor": "Playground",
+          "href": "https://deepmyst-playgrounds.onrender.com/",
+          "icon": "flask"
+        },
+        {
+          "anchor": "Chat",
+          "href": "https://deepmyst.com/chat",
+          "icon": "message"
+        }
+      ]
+    }
   },
   "logo": {
     "light": "/logo/logo-light.png",
