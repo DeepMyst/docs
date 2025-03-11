@@ -9,7 +9,7 @@ This guide will walk you through the process of setting up your DeepMyst account
 
 Before using DeepMyst, you'll need to sign up for an account:
 
-1. Visit [app.deepmyst.ai](https://app.deepmyst.ai) to create your account
+1. Visit [deepmyst.com](https://deepmyst.com) to create your account
 2. Enter your email address and create a secure password
 3. Verify your email address by clicking the link sent to your inbox
 4. Complete your account setup by providing your organization details
@@ -27,7 +27,7 @@ DeepMyst works with your existing model provider accounts. You'll need to connec
 5. Click "Save" to securely store your key
 6. Repeat for any additional providers you want to use
 
-<img src="/images/model-keys-page.png" alt="DeepMyst Model Keys Page" />
+<img src="/images/model-keys.png" alt="DeepMyst Model Keys Page" />
 
 > **Note**: DeepMyst securely encrypts and stores your provider API keys. These keys are only used to process requests through your existing model provider accounts.
 
@@ -58,7 +58,7 @@ from openai import OpenAI
 # Just change the base URL and API key - keep your code the same!
 client = OpenAI(
     api_key="your-deepmyst-api-key",  # Your DeepMyst API key from Step 3
-    base_url="https://api.deepmyst.ai/v1"  # DeepMyst endpoint
+    base_url="https://api.deepmyst.com/v1"  # DeepMyst endpoint
 )
 
 # Use the client exactly as you would with OpenAI
@@ -80,7 +80,7 @@ import OpenAI from 'openai';
 // Configure the OpenAI client to use DeepMyst
 const openai = new OpenAI({
   apiKey: 'your-deepmyst-api-key',  // Your DeepMyst API key
-  baseURL: 'https://api.deepmyst.ai/v1'  // DeepMyst endpoint
+  baseURL: 'https://api.deepmyst.com/v1'  // DeepMyst endpoint
 });
 
 async function getCompletion() {
@@ -100,7 +100,7 @@ getCompletion();
 ### Using cURL
 
 ```bash
-curl https://api.deepmyst.ai/v1/chat/completions \
+curl https://api.deepmyst.com/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer your-deepmyst-api-key" \
   -d '{
@@ -129,13 +129,13 @@ To confirm that your DeepMyst integration is working correctly:
 Now that you've set up your DeepMyst account and made your first API call, you can explore the advanced features that make DeepMyst powerful:
 
 <CardGroup cols={3}>
-  <Card title="Token Optimization" icon="compress" href="/features/optimization">
+  <Card title="Token Optimization" icon="compress" href="/token-optimization">
     Learn how to reduce token usage and costs
   </Card>
-  <Card title="Smart Routing" icon="route" href="/features/routing">
+  <Card title="Smart Routing" icon="route" href="/routing">
     Discover intelligent model selection
   </Card>
-  <Card title="Enhanced Reasoning" icon="brain" href="/features/reasoning">
+  <Card title="Enhanced Reasoning" icon="brain" href="/reasoning">
     Explore advanced reasoning techniques
   </Card>
 </CardGroup>
@@ -148,5 +148,3 @@ If you encounter any issues during setup or making API calls:
 - **Provider connection issues**: Check that your provider API keys are valid and have sufficient quota
 - **Model not found errors**: Ensure you're using a supported model name
 - **Rate limiting**: Check your current usage and plan limits in the dashboard
-
-For additional help, visit our [Support Center](https://support.deepmyst.ai) or contact us at support@deepmyst.ai.
