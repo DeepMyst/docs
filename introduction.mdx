@@ -1,71 +1,194 @@
 ---
-title: Introduction
-description: "Welcome to the home of your new documentation"
+title: "Introduction to DeepMyst"
+description: "Intelligent routing, optimization, and reasoning for LLM workflows"
 ---
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.png"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.png"
-  alt="Hero Dark"
-/>
+<img alt="DeepMyst Hero Light" className="block dark:hidden" src="/images/hero-light.png" />
+<img alt="DeepMyst Hero Dark" className="hidden dark:block" src="/images/hero-dark.png" />
 
-## Setting up
+## What is DeepMyst?
 
-The first step to world-class documentation is setting up your editing environments.
+DeepMyst is an intelligent LLM gateway that enhances AI interactions through advanced routing, token optimization, and reasoning capabilities. By intelligently directing queries to the most appropriate model and optimizing tokens, DeepMyst helps you achieve better results while reducing costs.
 
-<CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
+## Key Features
+
+<CardGroup cols={3}>
+  <Card title="Smart Routing" icon="route" href="/features/routing">
+    Automatically route queries to the optimal LLM based on query type, complexity, and capabilities
   </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
+  <Card title="Token Optimization" icon="compress" href="/features/optimization">
+    Reduce token usage by up to 75% with our suffix-array compression technology
+  </Card>
+  <Card title="Enhanced Reasoning" icon="brain" href="/features/reasoning">
+    Apply advanced reasoning techniques to improve response quality
   </Card>
 </CardGroup>
 
-## Make it yours
+## Getting Started
 
-Update your docs to your brand and add valuable content for the best user conversion.
+Integrate DeepMyst into your workflow in minutes with our API-compatible gateway.
+
+### Installation
+
+```bash
+# Coming soon: DeepMyst CLI
+npm install -g deepmyst-cli
+```
+
+### Basic Usage
+
+DeepMyst supports standard LLM API formats with special flags that unlock advanced capabilities.
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.deepmyst.ai/v1/chat/completions",
+    headers={"Authorization": f"Bearer {YOUR_API_KEY}"},
+    json={
+        "model": "gpt-4o-mini",  # Use any supported model
+        "messages": [
+            {"role": "user", "content": "Explain quantum computing"}
+        ]
+    }
+)
+
+print(response.json())
+```
+
+## Advanced Capabilities
+
+DeepMyst extends standard LLM functionality with powerful flags that transform how your AI interacts with users.
+
+### Token Optimization
+
+Add the `-optimize` flag to any model name to automatically reduce token usage while preserving content quality:
+
+```python
+# Standard request with token optimization
+response = requests.post(
+    "https://api.deepmyst.ai/v1/chat/completions",
+    headers={"Authorization": f"Bearer {YOUR_API_KEY}"},
+    json={
+        "model": "gpt-4o-mini-optimize",  # Note the -optimize flag
+        "messages": [
+            {"role": "user", "content": "Explain the history of artificial intelligence"}
+        ]
+    }
+)
+```
+
+### Enhanced Reasoning
+
+Apply advanced reasoning techniques to improve the LLM's problem-solving capabilities:
+
+```python
+# Use Chain-of-Thought (default)
+response = requests.post(
+    "https://api.deepmyst.ai/v1/chat/completions",
+    headers={"Authorization": f"Bearer {YOUR_API_KEY}"},
+    json={
+        "model": "gpt-4o-mini-reason",  # Default reasoning mode (COT)
+        "messages": [
+            {"role": "user", "content": "Solve this logic puzzle: If all blues are greens and no yellows are greens, then..."}
+        ]
+    }
+)
+
+# Specify a reasoning technique
+response = requests.post(
+    "https://api.deepmyst.ai/v1/chat/completions",
+    headers={"Authorization": f"Bearer {YOUR_API_KEY}"},
+    json={
+        "model": "gpt-4o-mini-reason-TOT",  # Use Tree-of-Thought reasoning
+        "messages": [
+            {"role": "user", "content": "What's the most efficient algorithm for this problem?"}
+        ]
+    }
+)
+```
+
+### Automatic Model Selection
+
+Let DeepMyst choose the best model for your query:
+
+```python
+response = requests.post(
+    "https://api.deepmyst.ai/v1/chat/completions",
+    headers={"Authorization": f"Bearer {YOUR_API_KEY}"},
+    json={
+        "model": "DeepMyst-auto",  # Automatic model selection
+        "messages": [
+            {"role": "user", "content": "Create a Python function to analyze sales data"}
+        ]
+    }
+)
+```
+
+## Supported Models
+
+DeepMyst provides access to a wide range of models from leading providers:
 
 <CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
+  <Card title="OpenAI" icon="openai">
+    GPT-4o, GPT-4o-mini, O1, O1-mini, O3-mini
   </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
+  <Card title="Anthropic" icon="a">
+    Claude 3.5 Sonnet, Claude 3 Haiku, Claude 3 Opus
   </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/content/components/accordions"
-  >
-    Build interactive features and designs to guide your users
+  <Card title="Google" icon="google">
+    Gemini 2.0 Flash, Gemini 1.5 Pro, Gemini 1.5 Flash
   </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
+  <Card title="Groq" icon="bolt">
+    Llama 3.1/3.3, Mixtral-8x7b, Gemma2, Qwen, DeepSeek
+  </Card>
+</CardGroup>
+
+## Combining Capabilities
+
+DeepMyst capabilities can be combined for even more powerful results:
+
+```python
+# Combine optimization, reasoning, and auto-routing
+response = requests.post(
+    "https://api.deepmyst.ai/v1/chat/completions",
+    headers={"Authorization": f"Bearer {YOUR_API_KEY}"},
+    json={
+        "model": "DeepMyst-auto-optimize-reason-TOT",
+        "messages": [
+            {"role": "user", "content": "Design a system architecture for a high-throughput payment processing service"}
+        ]
+    }
+)
+```
+
+## Benefits
+
+<CardGroup cols={3}>
+  <Card title="Cost Reduction" icon="dollar-sign">
+    Save up to 65% on token costs without sacrificing quality
+  </Card>
+  <Card title="Performance Boost" icon="gauge-high">
+    Get better answers through intelligent routing and reasoning
+  </Card>
+  <Card title="Simplified Integration" icon="plug">
+    One API for all your LLM needs with standard compatibility
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="API Reference" icon="code" href="/api-reference">
+    Explore the complete DeepMyst API
+  </Card>
+  <Card title="Reasoning Techniques" icon="diagram-project" href="/features/reasoning/techniques">
+    Learn about the different reasoning modes
+  </Card>
+  <Card title="Token Optimization" icon="file-contract" href="/features/optimization/how-it-works">
+    Understand how our token optimization works
+  </Card>
+  <Card title="Router Algorithms" icon="sitemap" href="/features/routing/algorithm">
+    Deep dive into our intelligent routing system
   </Card>
 </CardGroup>
