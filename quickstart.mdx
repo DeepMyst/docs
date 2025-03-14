@@ -5,7 +5,7 @@ description: "Set up your account, connect your model providers, and make your f
 
 This guide will walk you through the process of setting up your DeepMyst account and making your first API call.
 
-## 1. Create Your DeepMyst Account
+## 1\. Create Your DeepMyst Account
 
 Before using DeepMyst, you'll need to sign up for an account:
 
@@ -14,7 +14,7 @@ Before using DeepMyst, you'll need to sign up for an account:
 3. Verify your email address by clicking the link sent to your inbox
 4. Complete your account setup by providing your organization details
 
-## 2. Connect Your Model Providers
+## 2\. Connect Your Model Providers
 
 DeepMyst works with your existing model provider accounts. You'll need to connect at least one provider to get started:
 
@@ -25,11 +25,11 @@ DeepMyst works with your existing model provider accounts. You'll need to connec
 5. Click "Save" to securely store your key
 6. Repeat for any additional providers you want to use
 
-<img src="/images/model-keys.png" alt="DeepMyst Model Keys Page" />
+![DeepMyst Model Keys Page](/images/model-keys.png)
 
 > **Note**: DeepMyst securely encrypts and stores your provider API keys. These keys are only used to process requests through your existing model provider accounts.
 
-## 3. Generate Your DeepMyst API Key
+## 3\. Generate Your DeepMyst API Key
 
 You'll need a DeepMyst API key to authenticate your requests:
 
@@ -39,11 +39,11 @@ You'll need a DeepMyst API key to authenticate your requests:
 4. Select the appropriate access level
 5. Copy the generated key and store it securely
 
-<img src="/images/api-connection-page.png" alt="DeepMyst API Keys Page" />
+![DeepMyst API Keys Page](/images/api-connection-page.png)
 
 > **Important**: Your DeepMyst API key is different from your provider keys. The DeepMyst key authenticates you to the DeepMyst service, while your provider keys allow DeepMyst to make calls to various AI models on your behalf.
 
-## 4. Make Your First API Call
+## 4\. Make Your First API Call
 
 Once your account is set up, provider keys are added, and you've generated your DeepMyst API key, you can start making API calls. DeepMyst offers an OpenAI-compatible API, so you can use your existing code with minimal changes.
 
@@ -112,7 +112,7 @@ curl https://api.deepmyst.com/v1/chat/completions \
   }'
 ```
 
-## 5. Verify Your Integration
+## 5\. Verify Your Integration
 
 To confirm that your DeepMyst integration is working correctly:
 
@@ -120,21 +120,18 @@ To confirm that your DeepMyst integration is working correctly:
 2. Visit the "Usage" section in your DeepMyst dashboard to see your recent API calls
 3. Verify that the request appears in your usage logs with the correct model and token count
 
-<img src="/images/dashboard.png" alt="DeepMyst Usage Dashboard" />
+![DeepMyst Usage Dashboard](/images/dashboard.png)
 
 ## Next Steps
 
 Now that you've set up your DeepMyst account and made your first API call, you can explore the advanced features that make DeepMyst powerful:
 
-<CardGroup cols={3}>
+<CardGroup cols="2">
   <Card title="Token Optimization" icon="compress" href="/token-optimization">
     Learn how to reduce token usage and costs
   </Card>
   <Card title="Smart Routing" icon="route" href="/routing">
     Discover intelligent model selection
-  </Card>
-  <Card title="Enhanced Reasoning" icon="brain" href="/reasoning">
-    Explore advanced reasoning techniques
   </Card>
 </CardGroup>
 

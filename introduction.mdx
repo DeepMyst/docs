@@ -1,14 +1,23 @@
 ---
 title: "Introduction"
-description: "Intelligent routing, optimization, and reasoning for LLM workflows"
+description: "Intelligent optimization and routing for LLM workflows"
 ---
 
-<img alt="DeepMyst Hero Light" classname="block dark:hidden" src="/images/deepmyst-hero-light.png" />
-<img alt="DeepMyst Hero Dark" classname="hidden dark:block" src="/images/deepmyst-hero-dark.png" />
+<img
+  alt="DeepMyst Hero Light"
+  classname="block dark:hidden"
+  src="/images/deepmyst-hero-light.png"
+/>
+
+<img
+  alt="DeepMyst Hero Dark"
+  classname="hidden dark:block"
+  src="/images/deepmyst-hero-dark.png"
+/>
 
 ## What is DeepMyst?
 
-DeepMyst is an intelligent LLM gateway that enhances AI interactions through advanced routing, token optimization, and reasoning capabilities. By intelligently directing queries to the most appropriate model and optimizing tokens, DeepMyst helps you achieve better results while reducing costs.
+DeepMyst is an intelligent LLM gateway that enhances AI interactions through advanced token optimization and routing capabilities. By intelligently directing queries to the most appropriate model and optimizing tokens, DeepMyst helps you achieve better results while reducing costs.
 
 Our platform serves as a unified API layer that connects to all major LLM providers, enabling you to access the best models for each task while maintaining a single, consistent integration point. DeepMyst requires no new libraries or major code changes - simply redirect your existing OpenAI SDK calls to our API endpoint.
 
@@ -16,37 +25,25 @@ Our platform serves as a unified API layer that connects to all major LLM provid
 
 Traditional LLM implementations face several challenges:
 
-* **Cost inefficiency**: Using high-performance models for every query leads to unnecessary expenses
-
-* **Token waste**: Standard implementations don't optimize token usage, resulting in higher costs
-
-* **Quality inconsistency**: Different models excel at different tasks, but selecting the right one is complex
-
-* **Integration complexity**: Managing multiple model providers requires maintaining separate integrations
+- **Cost inefficiency**: Using high-performance models for every query leads to unnecessary expenses
+- **Token waste**: Standard implementations don't optimize token usage, resulting in higher costs
+- **Quality inconsistency**: Different models excel at different tasks, but selecting the right one is complex
+- **Integration complexity**: Managing multiple model providers requires maintaining separate integrations
 
 DeepMyst addresses these challenges by providing:
 
-* **Intelligent routing** that matches each query with the optimal model
-
-* **Token optimization** that reduces costs without sacrificing quality
-
-* **Enhanced reasoning** that improves response accuracy and relevance
-
-* **Unified API** that works with your existing code and libraries
+- **Token optimization** that reduces costs without sacrificing quality
+- **Intelligent routing** that matches each query with the optimal model
+- **Unified API** that works with your existing code and libraries
 
 ## Key Features
 
-<CardGroup cols={3}>
+<CardGroup cols="2">
   <Card title="Smart Routing" icon="route" href="/routing">
     Automatically route queries to the optimal LLM based on query type, complexity, and capabilities
   </Card>
-
   <Card title="Token Optimization" icon="compress" href="/token-optimization">
     Reduce token usage by up to 75% with our suffix-array compression technology
-  </Card>
-
-  <Card title="Enhanced Reasoning" icon="brain" href="/reasoning">
-    Apply advanced reasoning techniques to improve response quality
   </Card>
 </CardGroup>
 
@@ -55,26 +52,19 @@ DeepMyst addresses these challenges by providing:
 DeepMyst operates as an intelligent middleware layer between your application and various LLM providers:
 
 1. **Request Processing**: When you send a request to DeepMyst, our system analyzes the query to understand its content, complexity, and required capabilities.
-
-2. **Model Selection**: Based on this analysis, DeepMyst either routes to the model you specified or, if using auto-routing, selects the optimal model from your connected providers.
-
-3. **Token Optimization**: If enabled, DeepMyst applies sophisticated compression techniques to reduce token usage while preserving content quality.
-
-4. **Reasoning Enhancement**: When reasoning flags are applied, DeepMyst enhances the model's problem-solving approach using specialized techniques like Chain-of-Thought or Tree-of-Thought.
-
-5. **Response Delivery**: The optimized response is returned through the familiar OpenAI-compatible API format, ready for integration into your application.
+2. **Token Optimization**: If enabled, DeepMyst applies sophisticated compression techniques to reduce token usage while preserving content quality.
+3. **Model Selection**: Based on this analysis, DeepMyst either routes to the model you specified or, if using auto-routing, selects the optimal model from your connected providers.
+4. **Response Delivery**: The optimized response is returned through the familiar OpenAI-compatible API format, ready for integration into your application.
 
 ## Benefits
 
-<CardGroup cols={3}>
+<CardGroup cols="3">
   <Card title="Cost Reduction" icon="dollar-sign">
     Save up to 65% on token costs without sacrificing quality
   </Card>
-
   <Card title="Performance Boost" icon="gauge-high">
     Get better answers through intelligent routing and reasoning
   </Card>
-
   <Card title="Simplified Integration" icon="plug">
     One API for all your LLM needs with standard compatibility
   </Card>
@@ -84,19 +74,16 @@ DeepMyst operates as an intelligent middleware layer between your application an
 
 DeepMyst provides access to a wide range of models from leading providers:
 
-<CardGroup cols={2}>
+<CardGroup cols="2">
   <Card title="OpenAI" icon="openai">
     GPT-4o, GPT-4o-mini, O1, O1-mini, O3-mini
   </Card>
-
   <Card title="Anthropic" icon="a">
     Claude 3.5 Sonnet, Claude 3 Haiku, Claude 3 Opus
   </Card>
-
   <Card title="Google" icon="google">
     Gemini 2.0 Flash, Gemini 1.5 Pro, Gemini 1.5 Flash
   </Card>
-
   <Card title="Groq" icon="bolt">
     Llama 3.1/3.3, Mixtral-8x7b, Gemma2, Qwen, DeepSeek
   </Card>
@@ -104,20 +91,14 @@ DeepMyst provides access to a wide range of models from leading providers:
 
 ## Next Steps
 
-<CardGroup cols={2}>
+<CardGroup cols="3">
   <Card title="Getting Started" icon="rocket" href="/quickstart">
     Set up your DeepMyst account and make your first API call
   </Card>
-
   <Card title="Token Optimization" icon="file-contract" href="/token-optimization">
     Learn how our token optimization reduces costs
   </Card>
-
   <Card title="Smart Routing" icon="sitemap" href="/routing">
     Discover how our intelligent routing system works
-  </Card>
-
-  <Card title="Enhanced Reasoning" icon="brain-circuit" href="/reasoning">
-    Explore different reasoning techniques to improve responses
   </Card>
 </CardGroup>
