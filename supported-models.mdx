@@ -7,43 +7,220 @@ DeepMyst provides a unified API for accessing various language models with built
 DeepMyst currently supports the following models:
 
 ### OpenAI Models
-- `gpt-4o-mini` - GPT-4o Mini
-- `gpt-4o` - GPT-4o
-- `o1` - OpenAI o1
-- `o1-mini` - OpenAI o1-mini
-- `o3-mini` - OpenAI o3-mini
+- `gpt-5.2-pro` - GPT-5.2 Pro
+- `gpt-5.2` - GPT-5.2
+- `gpt-5` - GPT-5
+- `gpt-5-chat-latest` - GPT-5 Chat Latest
+- `gpt-5-mini` - GPT-5 Mini
+- `gpt-5-nano` - GPT-5 Nano
+- `gpt-4.1` - GPT-4.1
 - `chatgpt-4o-latest` - ChatGPT-4o Latest
+- `o3-deep-research` - O3 Deep Research
+- `o4-mini-deep-research` - O4 Mini Deep Research
+- `gpt-audio` - GPT Audio
+- `gpt-audio-mini` - GPT Audio Mini
+- `gpt-realtime` - GPT Realtime
+- `gpt-realtime-mini` - GPT Realtime Mini
+- `gpt-oss-120b` - GPT OSS 120B
+- `gpt-oss-20b` - GPT OSS 20B
 
 ### Anthropic Models
-- `claude-3-7-sonnet-20250219` - Claude 3.7 Sonnet
-- `claude-3-5-sonnet-latest` - Claude 3.5 Sonnet
-- `claude-3-5-haiku-latest` - Claude 3 Haiku
-- `claude-3-opus-latest` - Claude 3 Opus
+- `claude-opus-4-5` - Claude Opus 4.5
+- `claude-opus-4-1` - Claude Opus 4.1
+- `claude-opus-4` - Claude Opus 4
+- `claude-sonnet-4-5` - Claude Sonnet 4.5
+- `claude-sonnet-4` - Claude Sonnet 4
+- `claude-haiku-4-5` - Claude Haiku 4.5
+- `claude-haiku-3` - Claude Haiku 3
+- `anthropic/claude-sonnet-4-5-20250929` - Claude Sonnet 4.5 (dated)
 
-### Google Models
+### Google Gemini Models
+- `gemini-3-pro-preview` - Gemini 3 Pro Preview
+- `gemini-3-flash-preview` - Gemini 3 Flash Preview
+- `gemini-2.5-pro` - Gemini 2.5 Pro
+- `gemini-2.5-flash` - Gemini 2.5 Flash
+- `gemini-2.5-flash-lite` - Gemini 2.5 Flash Lite
 - `gemini-2.0-flash` - Gemini 2.0 Flash
-- `gemini-2.0-flash-lite-preview-02-05` - Gemini 2.0 Flash Lite
-- `gemini-1.5-pro` - Gemini 1.5 Pro
-- `gemini-1.5-flash` - Gemini 1.5 Flash
-- `gemini-1.5-flash-8b` - Gemini 1.5 Flash 8B
+- `gemini-2.0-flash-lite` - Gemini 2.0 Flash Lite
 
-### Groq Models
-- `llama-3.1-8b-instant` - Llama 3.1 8B Instant
+### xAI Grok Models
+- `grok-4` - Grok 4
+- `grok-4-fast` - Grok 4 Fast
+- `grok-4.1-fast` - Grok 4.1 Fast
+- `grok-3` - Grok 3
+- `grok-3-mini` - Grok 3 Mini
+- `grok-2-vision` - Grok 2 Vision
+- `grok-2-vision-latest` - Grok 2 Vision Latest
+- `grok-code-fast-1` - Grok Code Fast
+
+### Meta Llama Models
+- `llama-4-maverick` - Llama 4 Maverick
+- `llama-4-scout` - Llama 4 Scout
 - `llama-3.3-70b-versatile` - Llama 3.3 70B Versatile
-- `llama-guard-3-8b` - Llama Guard 3 8B
-- `mixtral-8x7b-32768` - Mixtral 8x7B 32K
-- `gemma2-9b-it` - Gemma2 9B IT
-- `qwen-2.5-32b` - Qwen 2.5 32B
-- `deepseek-r1-distill-qwen-32b` - Deepseek R1 Qwen 32B
-- `deepseek-r1-distill-llama-70b-specdec` - Deepseek R1 Llama 70B Spec
-- `deepseek-r1-distill-llama-70b` - Deepseek R1 Llama 70B
+- `llama-3.1-8b-instant` - Llama 3.1 8B Instant
+- `llama-guard-4-12b` - Llama Guard 4 12B
+
+### DeepSeek Models
+- `deepseek-chat` - DeepSeek Chat
+- `deepseek-reasoner` - DeepSeek Reasoner
+- `deepseek/deepseek-chat` - DeepSeek Chat (alternate)
+
+### Mistral AI Models
+- `mistral-large-latest` - Mistral Large Latest
+- `mistral-large-2411` - Mistral Large 2411
+- `mistral-large-2407` - Mistral Large 2407
+- `mistral-medium-latest` - Mistral Medium Latest
+- `mistral-small-latest` - Mistral Small Latest
+- `mistral-small-2506` - Mistral Small 2506
+- `codestral-latest` - Codestral Latest
+- `codestral-2508` - Codestral 2508
+- `codestral-2501` - Codestral 2501
+- `devstral-medium-2507` - Devstral Medium 2507
+- `devstral-small-2507` - Devstral Small 2507
+- `magistral-medium-2507` - Magistral Medium 2507
+- `magistral-medium-2506` - Magistral Medium 2506
+- `magistral-small-2507` - Magistral Small 2507
+- `magistral-small-2506` - Magistral Small 2506
+- `open-mistral-nemo` - Open Mistral Nemo
+- `open-mistral-nemo-2407` - Open Mistral Nemo 2407
+- `open-mistral-7b` - Open Mistral 7B
+- `open-mixtral-8x22b` - Open Mixtral 8x22B
+- `open-mixtral-8x7b` - Open Mixtral 8x7B
+- `open-codestral-mamba` - Open Codestral Mamba
+- `pixtral-large-2411` - Pixtral Large 2411
+- `mistral-embed` - Mistral Embed
+
+### Cohere Models
+- `command-a-03-2025` - Command A (March 2025)
+- `command-r-plus` - Command R Plus
+- `command-r-plus-08-2024` - Command R Plus (Aug 2024)
+- `command-r` - Command R
+- `command-r-08-2024` - Command R (Aug 2024)
+- `command-nightly` - Command Nightly
+- `command-light` - Command Light
+
+### Perplexity Sonar Models
+- `sonar` - Sonar
+- `sonar-pro` - Sonar Pro
+- `sonar-reasoning` - Sonar Reasoning
+- `sonar-reasoning-pro` - Sonar Reasoning Pro
+- `sonar-deep-research` - Sonar Deep Research
+
+### Qwen Models
+- `qwen3-32b` - Qwen 3 32B
+- `kimi-k2` - Kimi K2
+
+### Cerebras Models
+- `cerebras-llama3-3-70b` - Cerebras Llama 3.3 70B
+- `cerebras-llama3-1-70b` - Cerebras Llama 3.1 70B
+- `cerebras-llama3-1-8b` - Cerebras Llama 3.1 8B
+
+### Other Models
+- `r1-1776` - R1 1776
+- `moonshot-v1-32k` - Moonshot V1 32K
+- `moonshot-v1-8k` - Moonshot V1 8K
+- `snowflake-arctic-instruct` - Snowflake Arctic Instruct
+- `snowflake-llama-3-1-405b` - Snowflake Llama 3.1 405B
+
+### Embedding Models
+- `voyage-large-2` - Voyage Large 2
+- `voyage-code-2` - Voyage Code 2
+- `voyage-lite-02-instruct` - Voyage Lite 02 Instruct
+
+---
+
+## Cloud Platform Integrations
+
+### Azure OpenAI
+- `azure-gpt-4o` - Azure GPT-4o
+- `azure-gpt-4o-mini` - Azure GPT-4o Mini
+- `azure-gpt-4-turbo` - Azure GPT-4 Turbo
+- `azure-gpt-4` - Azure GPT-4
+- `azure-gpt-35-turbo-16k` - Azure GPT-3.5 Turbo 16K
+- `azure-gpt-35-turbo` - Azure GPT-3.5 Turbo
+- `azure-o1` - Azure O1
+- `azure-o1-mini` - Azure O1 Mini
+
+### AWS Bedrock
+- `bedrock-claude-3-7-sonnet` - Bedrock Claude 3.7 Sonnet
+- `bedrock-claude-3-5-sonnet` - Bedrock Claude 3.5 Sonnet
+- `bedrock-claude-3-opus` - Bedrock Claude 3 Opus
+- `bedrock-claude-3-sonnet` - Bedrock Claude 3 Sonnet
+- `bedrock-claude-3-haiku` - Bedrock Claude 3 Haiku
+- `bedrock-claude-v2` - Bedrock Claude V2
+- `bedrock-claude-instant` - Bedrock Claude Instant
+- `bedrock-deepseek-r1` - Bedrock DeepSeek R1
+- `bedrock-llama3-1-405b` - Bedrock Llama 3.1 405B
+- `bedrock-llama3-1-70b` - Bedrock Llama 3.1 70B
+- `bedrock-llama3-1-8b` - Bedrock Llama 3.1 8B
+- `bedrock-llama3-70b` - Bedrock Llama 3 70B
+- `bedrock-mixtral-8x7b` - Bedrock Mixtral 8x7B
+- `bedrock-mistral-7b` - Bedrock Mistral 7B
+- `bedrock-titan-express` - Bedrock Titan Express
+
+### Google Cloud Vertex AI
+- `vertex-gemini-2-0-flash` - Vertex Gemini 2.0 Flash
+- `vertex-gemini-1-5-pro` - Vertex Gemini 1.5 Pro
+- `vertex-gemini-1-5-flash` - Vertex Gemini 1.5 Flash
+- `vertex-claude-3-5-sonnet` - Vertex Claude 3.5 Sonnet
+- `vertex-claude-3-opus` - Vertex Claude 3 Opus
+- `vertex-claude-3-haiku` - Vertex Claude 3 Haiku
+- `vertex-llama3-1-405b` - Vertex Llama 3.1 405B
+- `vertex-llama3-1-70b` - Vertex Llama 3.1 70B
+- `vertex-llama3-1-8b` - Vertex Llama 3.1 8B
+- `vertex-mistral-large` - Vertex Mistral Large
+
+### Other Cloud Platforms
+- `nvidia-llama-3-1-405b` - NVIDIA Llama 3.1 405B
+- `nvidia-llama-3-1-70b` - NVIDIA Llama 3.1 70B
+- `nvidia-llama-3-1-8b` - NVIDIA Llama 3.1 8B
+- `nvidia-mixtral-8x7b` - NVIDIA Mixtral 8x7B
+- `databricks-dbrx-instruct` - Databricks DBRX Instruct
+- `databricks-llama-3-1-70b` - Databricks Llama 3.1 70B
+- `databricks-mixtral-8x7b` - Databricks Mixtral 8x7B
+- `sagemaker-llama-3-1-70b` - SageMaker Llama 3.1 70B
+- `sagemaker-mistral-7b` - SageMaker Mistral 7B
+- `watsonx-llama-3-1-70b` - WatsonX Llama 3.1 70B
+- `watsonx-mixtral-8x7b` - WatsonX Mixtral 8x7B
+- `watsonx-granite-13b` - WatsonX Granite 13B
+- `oci-cohere-command-r-plus` - OCI Cohere Command R Plus
+- `oci-cohere-command-r` - OCI Cohere Command R
+- `baseten-llama-3-1-70b` - Baseten Llama 3.1 70B
+- `baseten-mistral-7b` - Baseten Mistral 7B
+
+---
+
+## OpenRouter Models
+
+Access 400+ models through OpenRouter integration. Use the `openrouter/` prefix:
+
+- `openrouter-auto` - Auto-router (selects best model)
+- `openrouter/*` - Wildcard access to all OpenRouter models
+
+### Popular OpenRouter Models
+- `openrouter/openai/gpt-5.2` - GPT-5.2
+- `openrouter/openai/gpt-5` - GPT-5
+- `openrouter/openai/gpt-4.1` - GPT-4.1
+- `openrouter/openai/o3-mini` - O3 Mini
+- `openrouter/anthropic/claude-opus-4.5` - Claude Opus 4.5
+- `openrouter/anthropic/claude-sonnet-4.5` - Claude Sonnet 4.5
+- `openrouter/anthropic/claude-haiku-4.5` - Claude Haiku 4.5
+- `openrouter/google/gemini-3-pro-preview` - Gemini 3 Pro
+- `openrouter/google/gemini-2.5-pro` - Gemini 2.5 Pro
+- `openrouter/deepseek/deepseek-r1` - DeepSeek R1
+- `openrouter/deepseek/deepseek-v3.2` - DeepSeek V3.2
+- `openrouter/x-ai/grok-4` - Grok 4
+- `openrouter/mistralai/mistral-large-2512` - Mistral Large
+- `openrouter/qwen/qwen3-coder` - Qwen 3 Coder
+
+---
 
 ## Using Models with Direct API Requests
 
 ### Standard Request
 
 ```javascript
-// Standard request with Claude 3.7 Sonnet
+// Standard request with Claude Sonnet 4.5
 const response = await fetch('https://api.deepmyst.com/v1/chat/completions', {
   method: 'POST',
   headers: {
@@ -51,7 +228,7 @@ const response = await fetch('https://api.deepmyst.com/v1/chat/completions', {
     'Authorization': `Bearer YOUR_API_KEY`
   },
   body: JSON.stringify({
-    model: 'claude-3-7-sonnet-20250219',
+    model: 'claude-sonnet-4-5',
     messages: [
       { role: 'user', content: 'What are the benefits of token optimization?' }
     ]
@@ -65,7 +242,7 @@ console.log(data.choices[0].message.content);
 ### Optimized Request
 
 ```javascript
-// Using token optimization with GPT-4o
+// Using token optimization with GPT-5
 const response = await fetch('https://api.deepmyst.com/v1/chat/completions', {
   method: 'POST',
   headers: {
@@ -73,7 +250,7 @@ const response = await fetch('https://api.deepmyst.com/v1/chat/completions', {
     'Authorization': `Bearer YOUR_API_KEY`
   },
   body: JSON.stringify({
-    model: 'gpt-4o-optimize', // Note the -optimize suffix
+    model: 'gpt-5-optimize', // Note the -optimize suffix
     messages: [
       { role: 'user', content: 'Explain quantum computing in simple terms.' }
     ]
@@ -87,7 +264,7 @@ console.log(data.choices[0].message.content);
 ### Streaming Request
 
 ```javascript
-// Streaming response with Gemini 1.5 Pro
+// Streaming response with Gemini 2.5 Pro
 const response = await fetch('https://api.deepmyst.com/v1/chat/completions', {
   method: 'POST',
   headers: {
@@ -95,7 +272,7 @@ const response = await fetch('https://api.deepmyst.com/v1/chat/completions', {
     'Authorization': `Bearer YOUR_API_KEY`
   },
   body: JSON.stringify({
-    model: 'gemini-1.5-pro-optimize',
+    model: 'gemini-2.5-pro-optimize',
     messages: [
       { role: 'user', content: 'Write a short story about AI.' }
     ],
@@ -110,14 +287,14 @@ const decoder = new TextDecoder('utf-8');
 while (true) {
   const { done, value } = await reader.read();
   if (done) break;
-  
+
   const chunk = decoder.decode(value);
   const lines = chunk.split('\n').filter(line => line.trim() !== '' && line.trim() !== 'data: [DONE]');
-  
+
   for (const line of lines) {
     if (line.startsWith('data: ')) {
       const jsonStr = line.slice(6);
-      
+
       try {
         const parsed = JSON.parse(jsonStr);
         const content = parsed.choices?.[0]?.delta?.content || '';
@@ -154,10 +331,10 @@ const openai = new OpenAI({
 ### Standard Request
 
 ```javascript
-// Using Llama 3.3 70B through OpenAI SDK
+// Using Llama 4 Maverick through OpenAI SDK
 async function generateResponse() {
   const completion = await openai.chat.completions.create({
-    model: 'llama-3.3-70b-versatile',
+    model: 'llama-4-maverick',
     messages: [
       { role: 'user', content: 'Compare and contrast different AI architectures.' }
     ]
@@ -172,10 +349,10 @@ generateResponse();
 ### Optimized Request
 
 ```javascript
-// Using Mixtral 8x7B with optimization
+// Using Grok 4 with optimization
 async function generateOptimizedResponse() {
   const completion = await openai.chat.completions.create({
-    model: 'mixtral-8x7b-32768-optimize', // Note the -optimize suffix
+    model: 'grok-4-optimize', // Note the -optimize suffix
     messages: [
       { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain how transformers work in machine learning.' }
@@ -191,10 +368,10 @@ generateOptimizedResponse();
 ### Streaming Request
 
 ```javascript
-// Streaming with OpenAI SDK using Claude 3 Opus
+// Streaming with OpenAI SDK using Claude Opus 4.5
 async function generateStreamingResponse() {
   const stream = await openai.chat.completions.create({
-    model: 'claude-3-opus-latest-optimize',
+    model: 'claude-opus-4-5-optimize',
     messages: [
       { role: 'user', content: 'Write a poem about artificial intelligence.' }
     ],
@@ -214,7 +391,7 @@ generateStreamingResponse();
 ## Model Selection Guidance
 
 - Use `-optimize` suffix when token efficiency is important
-- Choose smaller models (mini variants) for faster responses and lower costs
+- Choose smaller models (mini, nano, flash variants) for faster responses and lower costs
 - Choose larger models (opus, pro variants) for more complex reasoning tasks
-- For high-throughput applications, consider models like `llama-3.1-8b-instant` or `gemini-1.5-flash`
+- For high-throughput applications, consider models like `llama-3.1-8b-instant` or `gemini-2.0-flash-lite`
 - Consider using the router to automatically route to the best model
