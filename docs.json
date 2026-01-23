@@ -30,7 +30,7 @@
       "anchors": [
         {
           "anchor": "Get API Key",
-          "href": "https://deepmyst-frontend.onrender.com/get-started",
+          "href": "https://platform.deepmyst.com/get-started",
           "icon": "key"
         },
         {
@@ -40,7 +40,7 @@
         },
         {
           "anchor": "Playground",
-          "href": "https://deepmyst-playgrounds.onrender.com/",
+          "href": "https://playgrounds.deepmyst.com",
           "icon": "flask"
         }
        
