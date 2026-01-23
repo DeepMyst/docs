@@ -34,8 +34,8 @@
           "icon": "key"
         },
         {
-          "anchor": "Manage Model Keys",
-          "href": "https://deepmyst-frontend.onrender.com/model-keys",
+          "anchor": "Manage Provider Keys",
+          "href": "https://platform.deepmyst.com/provider-keys",
           "icon": "key-round"
         },
         {
