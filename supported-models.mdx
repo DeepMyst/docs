@@ -2,11 +2,11 @@
 
 DeepMyst provides a unified API for accessing various language models with built-in token optimization. The platform supports models from multiple providers through a single, consistent interface.
 
-## Available Models
+## Enabled Providers
 
-DeepMyst currently supports the following models:
+The following providers are enabled by default for all users:
 
-### OpenAI Models
+### OpenAI
 - `gpt-5.2-pro` - GPT-5.2 Pro
 - `gpt-5.2` - GPT-5.2
 - `gpt-5` - GPT-5
@@ -24,7 +24,7 @@ DeepMyst currently supports the following models:
 - `gpt-oss-120b` - GPT OSS 120B
 - `gpt-oss-20b` - GPT OSS 20B
 
-### Anthropic Models
+### Claude (Anthropic)
 - `claude-opus-4-5` - Claude Opus 4.5
 - `claude-opus-4-1` - Claude Opus 4.1
 - `claude-opus-4` - Claude Opus 4
@@ -32,9 +32,8 @@ DeepMyst currently supports the following models:
 - `claude-sonnet-4` - Claude Sonnet 4
 - `claude-haiku-4-5` - Claude Haiku 4.5
 - `claude-haiku-3` - Claude Haiku 3
-- `anthropic/claude-sonnet-4-5-20250929` - Claude Sonnet 4.5 (dated)
 
-### Google Gemini Models
+### Gemini (Google)
 - `gemini-3-pro-preview` - Gemini 3 Pro Preview
 - `gemini-3-flash-preview` - Gemini 3 Flash Preview
 - `gemini-2.5-pro` - Gemini 2.5 Pro
@@ -43,7 +42,7 @@ DeepMyst currently supports the following models:
 - `gemini-2.0-flash` - Gemini 2.0 Flash
 - `gemini-2.0-flash-lite` - Gemini 2.0 Flash Lite
 
-### xAI Grok Models
+### Grok (xAI)
 - `grok-4` - Grok 4
 - `grok-4-fast` - Grok 4 Fast
 - `grok-4.1-fast` - Grok 4.1 Fast
@@ -53,93 +52,16 @@ DeepMyst currently supports the following models:
 - `grok-2-vision-latest` - Grok 2 Vision Latest
 - `grok-code-fast-1` - Grok Code Fast
 
-### Meta Llama Models
+### Groq
 - `llama-4-maverick` - Llama 4 Maverick
 - `llama-4-scout` - Llama 4 Scout
 - `llama-3.3-70b-versatile` - Llama 3.3 70B Versatile
 - `llama-3.1-8b-instant` - Llama 3.1 8B Instant
 - `llama-guard-4-12b` - Llama Guard 4 12B
 
-### DeepSeek Models
+### DeepSeek
 - `deepseek-chat` - DeepSeek Chat
 - `deepseek-reasoner` - DeepSeek Reasoner
-- `deepseek/deepseek-chat` - DeepSeek Chat (alternate)
-
-### Mistral AI Models
-- `mistral-large-latest` - Mistral Large Latest
-- `mistral-large-2411` - Mistral Large 2411
-- `mistral-large-2407` - Mistral Large 2407
-- `mistral-medium-latest` - Mistral Medium Latest
-- `mistral-small-latest` - Mistral Small Latest
-- `mistral-small-2506` - Mistral Small 2506
-- `codestral-latest` - Codestral Latest
-- `codestral-2508` - Codestral 2508
-- `codestral-2501` - Codestral 2501
-- `devstral-medium-2507` - Devstral Medium 2507
-- `devstral-small-2507` - Devstral Small 2507
-- `magistral-medium-2507` - Magistral Medium 2507
-- `magistral-medium-2506` - Magistral Medium 2506
-- `magistral-small-2507` - Magistral Small 2507
-- `magistral-small-2506` - Magistral Small 2506
-- `open-mistral-nemo` - Open Mistral Nemo
-- `open-mistral-nemo-2407` - Open Mistral Nemo 2407
-- `open-mistral-7b` - Open Mistral 7B
-- `open-mixtral-8x22b` - Open Mixtral 8x22B
-- `open-mixtral-8x7b` - Open Mixtral 8x7B
-- `open-codestral-mamba` - Open Codestral Mamba
-- `pixtral-large-2411` - Pixtral Large 2411
-- `mistral-embed` - Mistral Embed
-
-### Cohere Models
-- `command-a-03-2025` - Command A (March 2025)
-- `command-r-plus` - Command R Plus
-- `command-r-plus-08-2024` - Command R Plus (Aug 2024)
-- `command-r` - Command R
-- `command-r-08-2024` - Command R (Aug 2024)
-- `command-nightly` - Command Nightly
-- `command-light` - Command Light
-
-### Perplexity Sonar Models
-- `sonar` - Sonar
-- `sonar-pro` - Sonar Pro
-- `sonar-reasoning` - Sonar Reasoning
-- `sonar-reasoning-pro` - Sonar Reasoning Pro
-- `sonar-deep-research` - Sonar Deep Research
-
-### Qwen Models
-- `qwen3-32b` - Qwen 3 32B
-- `kimi-k2` - Kimi K2
-
-### Cerebras Models
-- `cerebras-llama3-3-70b` - Cerebras Llama 3.3 70B
-- `cerebras-llama3-1-70b` - Cerebras Llama 3.1 70B
-- `cerebras-llama3-1-8b` - Cerebras Llama 3.1 8B
-
-### Other Models
-- `r1-1776` - R1 1776
-- `moonshot-v1-32k` - Moonshot V1 32K
-- `moonshot-v1-8k` - Moonshot V1 8K
-- `snowflake-arctic-instruct` - Snowflake Arctic Instruct
-- `snowflake-llama-3-1-405b` - Snowflake Llama 3.1 405B
-
-### Embedding Models
-- `voyage-large-2` - Voyage Large 2
-- `voyage-code-2` - Voyage Code 2
-- `voyage-lite-02-instruct` - Voyage Lite 02 Instruct
-
----
-
-## Cloud Platform Integrations
-
-### Azure OpenAI
-- `azure-gpt-4o` - Azure GPT-4o
-- `azure-gpt-4o-mini` - Azure GPT-4o Mini
-- `azure-gpt-4-turbo` - Azure GPT-4 Turbo
-- `azure-gpt-4` - Azure GPT-4
-- `azure-gpt-35-turbo-16k` - Azure GPT-3.5 Turbo 16K
-- `azure-gpt-35-turbo` - Azure GPT-3.5 Turbo
-- `azure-o1` - Azure O1
-- `azure-o1-mini` - Azure O1 Mini
 
 ### AWS Bedrock
 - `bedrock-claude-3-7-sonnet` - Bedrock Claude 3.7 Sonnet
@@ -158,46 +80,13 @@ DeepMyst currently supports the following models:
 - `bedrock-mistral-7b` - Bedrock Mistral 7B
 - `bedrock-titan-express` - Bedrock Titan Express
 
-### Google Cloud Vertex AI
-- `vertex-gemini-2-0-flash` - Vertex Gemini 2.0 Flash
-- `vertex-gemini-1-5-pro` - Vertex Gemini 1.5 Pro
-- `vertex-gemini-1-5-flash` - Vertex Gemini 1.5 Flash
-- `vertex-claude-3-5-sonnet` - Vertex Claude 3.5 Sonnet
-- `vertex-claude-3-opus` - Vertex Claude 3 Opus
-- `vertex-claude-3-haiku` - Vertex Claude 3 Haiku
-- `vertex-llama3-1-405b` - Vertex Llama 3.1 405B
-- `vertex-llama3-1-70b` - Vertex Llama 3.1 70B
-- `vertex-llama3-1-8b` - Vertex Llama 3.1 8B
-- `vertex-mistral-large` - Vertex Mistral Large
-
-### Other Cloud Platforms
-- `nvidia-llama-3-1-405b` - NVIDIA Llama 3.1 405B
-- `nvidia-llama-3-1-70b` - NVIDIA Llama 3.1 70B
-- `nvidia-llama-3-1-8b` - NVIDIA Llama 3.1 8B
-- `nvidia-mixtral-8x7b` - NVIDIA Mixtral 8x7B
-- `databricks-dbrx-instruct` - Databricks DBRX Instruct
-- `databricks-llama-3-1-70b` - Databricks Llama 3.1 70B
-- `databricks-mixtral-8x7b` - Databricks Mixtral 8x7B
-- `sagemaker-llama-3-1-70b` - SageMaker Llama 3.1 70B
-- `sagemaker-mistral-7b` - SageMaker Mistral 7B
-- `watsonx-llama-3-1-70b` - WatsonX Llama 3.1 70B
-- `watsonx-mixtral-8x7b` - WatsonX Mixtral 8x7B
-- `watsonx-granite-13b` - WatsonX Granite 13B
-- `oci-cohere-command-r-plus` - OCI Cohere Command R Plus
-- `oci-cohere-command-r` - OCI Cohere Command R
-- `baseten-llama-3-1-70b` - Baseten Llama 3.1 70B
-- `baseten-mistral-7b` - Baseten Mistral 7B
-
----
-
-## OpenRouter Models
-
+### OpenRouter
 Access 400+ models through OpenRouter integration. Use the `openrouter/` prefix:
 
 - `openrouter-auto` - Auto-router (selects best model)
 - `openrouter/*` - Wildcard access to all OpenRouter models
 
-### Popular OpenRouter Models
+**Popular OpenRouter Models:**
 - `openrouter/openai/gpt-5.2` - GPT-5.2
 - `openrouter/openai/gpt-5` - GPT-5
 - `openrouter/openai/gpt-4.1` - GPT-4.1
@@ -212,6 +101,39 @@ Access 400+ models through OpenRouter integration. Use the `openrouter/` prefix:
 - `openrouter/x-ai/grok-4` - Grok 4
 - `openrouter/mistralai/mistral-large-2512` - Mistral Large
 - `openrouter/qwen/qwen3-coder` - Qwen 3 Coder
+
+---
+
+## Additional Providers
+
+The following providers are available upon request. [Contact us](mailto:support@deepmyst.com) to enable these for your account:
+
+| Provider | Models Available |
+|----------|-----------------|
+| **Anyscale** | Various open-source models |
+| **Azure AI** | Azure-hosted AI models |
+| **Azure OpenAI** | `azure-gpt-4o`, `azure-gpt-4o-mini`, `azure-gpt-4-turbo`, `azure-gpt-4`, `azure-o1`, `azure-o1-mini` |
+| **Baseten** | `baseten-llama-3-1-70b`, `baseten-mistral-7b` |
+| **Cerebras** | `cerebras-llama3-3-70b`, `cerebras-llama3-1-70b`, `cerebras-llama3-1-8b` |
+| **Cohere** | `command-a-03-2025`, `command-r-plus`, `command-r`, `command-nightly`, `command-light` |
+| **Databricks** | `databricks-dbrx-instruct`, `databricks-llama-3-1-70b`, `databricks-mixtral-8x7b` |
+| **Google AI Studio** | Direct Google AI Studio access |
+| **Gradient AI** | Gradient-hosted models |
+| **Heroku** | Heroku-deployed models |
+| **HuggingFace** | `huggingface-gemma-7b`, `huggingface-llama-3-1-8b`, `huggingface-mistral-7b`, `huggingface-phi-3-mini`, `huggingface-qwen2-72b` |
+| **IBM Watsonx** | `watsonx-llama-3-1-70b`, `watsonx-mixtral-8x7b`, `watsonx-granite-13b` |
+| **Meta Llama** | Direct Meta Llama API access |
+| **Mistral AI** | `mistral-large-latest`, `mistral-medium-latest`, `mistral-small-latest`, `codestral-latest`, `magistral-medium`, `open-mixtral-8x22b` |
+| **Moonshot AI** | `moonshot-v1-32k`, `moonshot-v1-8k` |
+| **NVIDIA NIM** | `nvidia-llama-3-1-405b`, `nvidia-llama-3-1-70b`, `nvidia-llama-3-1-8b`, `nvidia-mixtral-8x7b` |
+| **Oracle Cloud** | `oci-cohere-command-r-plus`, `oci-cohere-command-r` |
+| **Perplexity AI** | `sonar`, `sonar-pro`, `sonar-reasoning`, `sonar-reasoning-pro`, `sonar-deep-research` |
+| **Replicate** | `replicate-llama-2-70b-chat`, `replicate-mistral-7b-instruct`, `replicate-mixtral-8x7b` |
+| **AWS SageMaker** | `sagemaker-llama-3-1-70b`, `sagemaker-mistral-7b` |
+| **Snowflake** | `snowflake-arctic-instruct`, `snowflake-llama-3-1-405b` |
+| **Together AI** | `together-llama-2-70b-chat`, `together-wizardlm-70b`, `together-codellama-34b` |
+| **Vertex AI** | `vertex-gemini-2-0-flash`, `vertex-gemini-1-5-pro`, `vertex-claude-3-5-sonnet`, `vertex-llama3-1-405b` |
+| **Voyage AI** | `voyage-large-2`, `voyage-code-2`, `voyage-lite-02-instruct` |
 
 ---
 
