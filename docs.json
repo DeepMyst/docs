@@ -14,38 +14,22 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Overview",
             "pages": [
-              "introduction",
-              "quickstart",
-              "supported-models",
-              "token-optimization",
-              "routing"
+              "introduction"
+            ]
+          },
+          {
+            "group": "The Operating System",
+            "pages": [
+              "agents",
+              "governance",
+              "architecture"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Get API Key",
-          "href": "https://platform.deepmyst.com/get-started",
-          "icon": "key"
-        },
-        {
-          "anchor": "Manage Provider Keys",
-          "href": "https://platform.deepmyst.com/provider-keys",
-          "icon": "key-round"
-        },
-        {
-          "anchor": "Playground",
-          "href": "https://playgrounds.deepmyst.com",
-          "icon": "flask"
-        }
-       
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/logo-light.png",

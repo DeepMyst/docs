@@ -1,0 +1,119 @@
+---
+title: "Governance"
+description: "Set security, budgets, and access rules once — they follow every request"
+---
+
+Governance is the layer every request inherits. You set identity, policy, and
+security rules at the top of your organization, and they cascade down to every
+department, app, agent, and key — automatically, with no extra code. Set the rules
+once; they follow every request.
+
+## Cascading policy
+
+Policies flow through a hierarchy:
+
+```
+Organization → Department → App → Key
+```
+
+Each level can **only tighten, never loosen**. A department can't override an
+org-level block, and a key can't grant itself more than its app allows. Set a
+budget cap or a model allowlist at the org and you know it holds everywhere
+beneath it.
+
+| Level | Example rule              |
+| ----- | ------------------------ |
+| Org   | budget · max $50k / mo   |
+| Dept  | model · only gpt-5       |
+| App   | rate · 60 RPM            |
+| Key   | scope · read-only        |
+
+### Policy types
+
+- **Rate limits** — requests per minute (RPM) and tokens per minute (TPM), per
+  key, model, or endpoint
+- **Budgets** — daily, weekly, and monthly spend caps with automatic enforcement
+- **Model allowlisting** — restrict which models a key can reach
+- **Endpoint restrictions** — control which API endpoints a key can call
+- **Guardrails** — content policies for intent blocking, PII redaction, and
+  toxicity thresholds
+- **Custom rules** — regex and keyword patterns with block, flag, or reclassify
+  actions
+- **Intent rules** — per-intent actions such as allow, block, or force optimization
+
+## KYT (Know Your Tokens)
+
+KYT is DeepMyst's inline security engine. Every request is classified **in under
+15ms** before it reaches a model, so threats are caught in the request path — not
+after the fact.
+
+<CardGroup cols="2">
+  <Card title="Prompt injection" icon="shield-virus">
+    Detects attempts to override system prompts or exfiltrate instructions.
+  </Card>
+  <Card title="PII detection &amp; redaction" icon="user-shield">
+    Identifies personal information and redacts it before forwarding — replace,
+    mask, tokenize, or hash.
+  </Card>
+  <Card title="Toxicity scoring" icon="triangle-exclamation">
+    Rates content against your thresholds and flags or blocks accordingly.
+  </Card>
+  <Card title="Intent classification" icon="tags">
+    Categorizes every request so policy can act on what it's actually trying to do.
+  </Card>
+</CardGroup>
+
+### Two passes
+
+- **Pass 1 (inline, &lt;15ms)** runs synchronously in the request path to classify
+  and enforce guardrails before the model is called.
+- **Pass 2 (async)** runs after the response for deeper enrichment, behavioral
+  analytics, and anomaly detection across requests.
+
+### Guardrail enforcement
+
+Based on classification, the gateway can:
+
+- **Block** the request and return an error
+- **Flag** it for manual review
+- **Redact** PII before forwarding
+- **Allow** it with full logging
+
+Flagged requests land in a review queue where they can be dismissed or escalated.
+
+## Identity and access
+
+- **SSO** — SAML 2.0 and OIDC for enterprise sign-in
+- **SCIM** — automatic user provisioning and de-provisioning
+- **RBAC** — role-based access control across owner, admin, operator, team lead,
+  auditor, member, and viewer roles, plus a read-only flag
+- **Access scopes** — row-level grants that give a team lead read access to
+  specific projects, departments, or users
+
+## Audit and replay
+
+Every request and every agent run is written to an immutable audit log:
+
+- **Audit-logged forever** — inputs, outputs, model, tokens, cost, and policy
+  decisions
+- **Replayable** — replay any run on demand to reproduce what happened
+- **Evals on every output** — each result is scored against your rubric
+
+## Credits and metering
+
+Usage is metered per request and billed in credits (1 credit = $0.01). Every
+response carries DeepMyst headers — request ID, token counts, compression ratio,
+cost, credits, rate-limit and budget remaining, classification category, and
+whether the request was flagged or redacted — so cost and policy are observable on
+every call.
+
+## Next steps
+
+<CardGroup cols="2">
+  <Card title="The OS Stack" icon="layer-group" href="/architecture">
+    See how governance sits beneath every agent and request
+  </Card>
+  <Card title="Agent Builder" icon="wand-magic-sparkles" href="/agents">
+    Build agents that inherit this governance automatically
+  </Card>
+</CardGroup>

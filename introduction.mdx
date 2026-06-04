@@ -1,104 +1,117 @@
 ---
 title: "Introduction"
-description: "Intelligent optimization and routing for LLM workflows"
+description: "The operating system for your infinite workforce"
 ---
 
-<img
-  alt="DeepMyst Hero Light"
-  classname="block dark:hidden"
-  src="/images/deepmyst-hero-light.png"
-/>
+## The operating system for your infinite workforce
 
-<img
-  alt="DeepMyst Hero Dark"
-  classname="hidden dark:block"
-  src="/images/deepmyst-hero-dark.png"
-/>
+DeepMyst is the operating system for your infinite workforce. Build AI agents in
+human language, run them across 500+ models without rewriting a line, and set
+security, budgets, and access rules once — they apply to every request,
+automatically.
 
-## What is DeepMyst?
+This isn't another AI app builder. It's the operating system for an AI-native
+company: the place where you describe an agent, hand it to a team, and trust that
+every run it makes is routed, optimized, governed, and audited the same way.
 
-DeepMyst is an intelligent LLM gateway that enhances AI interactions through advanced token optimization and routing capabilities. By intelligently directing queries to the most appropriate model and optimizing tokens, DeepMyst helps you achieve better results while reducing costs.
+## Why DeepMyst
 
-Our platform serves as a unified API layer that connects to all major LLM providers, enabling you to access the best models for each task while maintaining a single, consistent integration point. DeepMyst requires no new libraries or major code changes - simply redirect your existing OpenAI SDK calls to our API endpoint.
+Standing up AI inside a company usually means stitching together a model
+provider, a prompt framework, a vector store, a policy layer, an audit trail, and
+a billing system — then doing it again for the next team. DeepMyst replaces that
+assembly with one platform:
 
-## Why DeepMyst?
+- **Build in human language.** Describe an agent in a sentence. DeepMyst picks the
+  right frontend, attaches the right knowledge, and applies your policy.
+- **Run on any model.** One OpenAI-compatible API across 500+ models. Swap
+  providers with a config flip — your code never changes.
+- **Govern once, everywhere.** Identity, policy, security, and audit are inherited
+  by every request. Set the rules at the top; they cascade down and can only
+  tighten.
+- **Scale efficiently.** Every prompt is losslessly compressed and routed to the
+  model that does the job best — millions of runs, not millions in spend.
 
-Traditional LLM implementations face several challenges:
+## Built like infrastructure
 
-- **Cost inefficiency**: Using high-performance models for every query leads to unnecessary expenses
-- **Token waste**: Standard implementations don't optimize token usage, resulting in higher costs
-- **Quality inconsistency**: Different models excel at different tasks, but selecting the right one is complex
-- **Integration complexity**: Managing multiple model providers requires maintaining separate integrations
-
-DeepMyst addresses these challenges by providing:
-
-- **Token optimization** that reduces costs without sacrificing quality
-- **Intelligent routing** that matches each query with the optimal model
-- **Unified API** that works with your existing code and libraries
-
-## Key Features
-
-<CardGroup cols="2">
-  <Card title="Smart Routing" icon="route" href="/routing">
-    Automatically route queries to the optimal LLM based on query type, complexity, and capabilities
-  </Card>
-  <Card title="Token Optimization" icon="compress" href="/token-optimization">
-    Reduce token usage by up to 75% with our suffix-array compression technology
-  </Card>
-</CardGroup>
-
-## How DeepMyst Works
-
-DeepMyst operates as an intelligent middleware layer between your application and various LLM providers:
-
-1. **Request Processing**: When you send a request to DeepMyst, our system analyzes the query to understand its content, complexity, and required capabilities.
-2. **Token Optimization**: If enabled, DeepMyst applies sophisticated compression techniques to reduce token usage while preserving content quality.
-3. **Model Selection**: Based on this analysis, DeepMyst either routes to the model you specified or, if using auto-routing, selects the optimal model from your connected providers.
-4. **Response Delivery**: The optimized response is returned through the familiar OpenAI-compatible API format, ready for integration into your application.
-
-## Benefits
-
-<CardGroup cols="3">
-  <Card title="Cost Reduction" icon="dollar-sign">
-    Save up to 65% on token costs without sacrificing quality
-  </Card>
-  <Card title="Performance Boost" icon="gauge-high">
-    Get better answers through intelligent routing and reasoning
-  </Card>
-  <Card title="Simplified Integration" icon="plug">
-    One API for all your LLM needs with standard compatibility
-  </Card>
-</CardGroup>
-
-## Supported Models
-
-DeepMyst provides access to a wide range of models from leading providers:
+Every agent runs on the same six-layer stack. A request inherits identity from the
+bottom and policy from above, so the stack that runs your first agent runs every
+agent.
 
 <CardGroup cols="2">
-  <Card title="OpenAI" icon="openai">
-    GPT-4o, GPT-4o-mini, O1, O1-mini, O3-mini
+  <Card title="Shell — how humans use it" icon="terminal">
+    Chat, copilot, embeds, and public portals. The surfaces people actually touch.
   </Card>
-  <Card title="Anthropic" icon="a">
-    Claude 3.5 Sonnet, Claude 3 Haiku, Claude 3 Opus
+  <Card title="Agents — first-class processes" icon="boxes-stacked">
+    Voice, canvas, document, workflow, kanban, form, and a dozen other shapes.
   </Card>
-  <Card title="Google" icon="google">
-    Gemini 2.0 Flash, Gemini 1.5 Pro, Gemini 1.5 Flash
+  <Card title="Memory — what agents know" icon="brain">
+    Knowledge graph, documents, datasources, and history every agent reads from.
   </Card>
-  <Card title="Groq" icon="bolt">
-    Llama 3.1/3.3, Mixtral-8x7b, Gemma2, Qwen, DeepSeek
+  <Card title="Skills — what agents can do" icon="wrench">
+    Built-in tools, MCP servers, web search, and sub-agents.
+  </Card>
+  <Card title="Models — what powers their thinking" icon="microchip">
+    500+ models behind one OpenAI-compatible API, with automatic failover.
+  </Card>
+  <Card title="Governance — the rules everything inherits" icon="shield-halved">
+    SSO, RBAC, cascading policy, inline KYT security, and audit logged forever.
   </Card>
 </CardGroup>
 
-## Next Steps
+See the full [architecture](/architecture) for how a request flows through the stack.
+
+## What you can build
+
+Every department, every workflow. A single sentence in the builder becomes a
+working agent with the right interface for the job.
+
+<CardGroup cols="2">
+  <Card title="Engineering" icon="code">
+    Bug triage on a severity board, PR reviewers against your style guide,
+    structured postmortem intake.
+  </Card>
+  <Card title="Growth" icon="bullhorn">
+    Real-time sales call coaching, brand studios in your voice, pitch decks from a
+    one-line brief.
+  </Card>
+  <Card title="Operations" icon="gears">
+    Contract reviewers that cite your procurement policy, onboarding buddies,
+    multi-step vendor intake.
+  </Card>
+  <Card title="Leadership" icon="compass">
+    Metrics briefs on warehouse data, working financial models, bespoke strategy
+    copilots.
+  </Card>
+</CardGroup>
+
+Explore the [Agent Builder](/agents) to see the agent types and how they ship.
+
+## Production-grade by default
+
+Agents built in a sentence still behave like production software:
 
 <CardGroup cols="3">
-  <Card title="Getting Started" icon="rocket" href="/quickstart">
-    Set up your DeepMyst account and make your first API call
+  <Card title="Evaluated" icon="bullseye">
+    Every output is scored against your rubric before it reaches anyone.
   </Card>
-  <Card title="Token Optimization" icon="file-contract" href="/token-optimization">
-    Learn how our token optimization reduces costs
+  <Card title="Governed" icon="shield-check">
+    KYT scans every request in under 15ms for injection, PII, and toxicity.
   </Card>
-  <Card title="Smart Routing" icon="sitemap" href="/routing">
-    Discover how our intelligent routing system works
+  <Card title="Audited" icon="clock-rotate-left">
+    Every run is logged forever and replayable on demand.
+  </Card>
+</CardGroup>
+
+## Next steps
+
+<CardGroup cols="3">
+  <Card title="Agent Builder" icon="wand-magic-sparkles" href="/agents">
+    Build agents in human language and ship them to every department.
+  </Card>
+  <Card title="Governance" icon="shield-halved" href="/governance">
+    Set policy, security, and access rules that follow every request.
+  </Card>
+  <Card title="The OS Stack" icon="layer-group" href="/architecture">
+    See how the six layers fit together into one platform.
   </Card>
 </CardGroup>

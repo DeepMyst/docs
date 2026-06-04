@@ -1,0 +1,106 @@
+---
+title: "The OS Stack"
+description: "Built like infrastructure — six layers every agent and request inherits"
+---
+
+DeepMyst is built like infrastructure. Six layers, where every request inherits
+identity from the bottom and policy from above. The same stack that runs your
+first agent runs every agent — there's no second system for production.
+
+## The six layers
+
+| Layer          | What it is                          | Includes                                                  |
+| -------------- | ----------------------------------- | --------------------------------------------------------- |
+| **Shell**      | How humans use it                   | Chat, copilot, embeds, public portals                     |
+| **Agents**     | First-class processes               | Voice, canvas, document, workflow, kanban, form, and more |
+| **Memory**     | What agents know                    | Knowledge graph, documents, datasources, history          |
+| **Skills**     | What agents can do                  | Built-in tools, MCP, web search, sub-agents               |
+| **Models**     | What powers their thinking          | 500+ models, OpenAI-compatible, auto-failover             |
+| **Governance** | The rules everything inherits       | SSO, RBAC, cascading policy, KYT, audit                   |
+
+<CardGroup cols="2">
+  <Card title="Shell" icon="terminal">
+    The surfaces people touch. Embed an agent anywhere, share a link, or hand off
+    to a chat surface.
+  </Card>
+  <Card title="Agents" icon="boxes-stacked">
+    First-class processes in a dozen shapes — voice, canvas, document, workflow,
+    kanban, form, and more.
+  </Card>
+  <Card title="Memory" icon="brain">
+    The persistent layer every agent reads from: knowledge graph, documents,
+    connected datasources, and history.
+  </Card>
+  <Card title="Skills" icon="wrench">
+    The tools and integrations every agent can invoke — built-in tools, MCP, web
+    search, and sub-agents.
+  </Card>
+  <Card title="Models" icon="microchip">
+    One API across every leading model. Swap providers without rewriting code, with
+    automatic failover.
+  </Card>
+  <Card title="Governance" icon="shield-halved">
+    Identity, cascading policy, inline security, and audit — inherited by every
+    request, logged forever.
+  </Card>
+</CardGroup>
+
+## How a request flows
+
+Every call — whether from an agent or a direct API request — runs the same
+pipeline. DeepMyst handles identity, policy, security, optimization, and metering
+around a pluggable gateway hop:
+
+1. **Auth** — validate the API key
+2. **Policy lookup** — resolve the key → app → dept → org cascade
+3. **KYT inline classification** — injection, PII, toxicity, and intent in under 15ms
+4. **Guardrail enforcement** — block, flag, or redact based on policy
+5. **Credit &amp; rate check** — enforce RPM/TPM limits and budgets
+6. **Optimization** — losslessly compress context
+7. **Gateway** — route, proxy, and return from the chosen model
+8. **Metering** — record usage and calculate cost
+9. **Enrichment** — async KYT Pass 2 and behavioral analytics
+10. **Events** — emit webhooks, write the audit log, update analytics
+
+The model provider never sees user identity, classification results, or
+uncompressed requests — DeepMyst handles those before and after the gateway hop.
+
+## One API, every model
+
+The Models layer is an OpenAI-compatible gateway. Point your base URL at DeepMyst
+and the same SDK works across 500+ models from every major provider. A/B test one
+model against another with a single config flip — your code never changes.
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="your-deepmyst-api-key",
+    base_url="https://api.deepmyst.com/v1",
+)
+
+# Swap the model string; everything else stays the same
+client.chat.completions.create(
+    model="claude-opus-4-5",   # or gpt-5, gemini-3-pro-preview, ...
+    messages=[...],
+)
+```
+
+## Pluggable gateway
+
+The Models layer is designed to run behind multiple gateway adapters through a
+single interface, so routing infrastructure can change without touching the layers
+above it. The key principle: the gateway adapter never sees user identity,
+classification results, or uncompressed requests — those are handled by DeepMyst
+core, so optimization and governance stay consistent no matter what's underneath.
+
+## Next steps
+
+<CardGroup cols="2">
+  <Card title="Agent Builder" icon="wand-magic-sparkles" href="/agents">
+    Build on the Agents layer in human language
+  </Card>
+  <Card title="Governance" icon="shield-halved" href="/governance">
+    Configure the rules every layer inherits
+  </Card>
+</CardGroup>

@@ -1,0 +1,161 @@
+---
+title: "Agent Builder"
+description: "Build AI agents in human language and ship them to every department"
+---
+
+Agents are first-class processes on DeepMyst. You describe what you want in plain
+language; DeepMyst picks the right frontend, attaches the right knowledge, and
+applies your policy. The result is a working agent with a shareable URL — built in
+a sentence, reliable in production, and audited forever.
+
+## Build an agent in a sentence
+
+Open the **Agent Builder**, describe the job, and click **Build agent**. DeepMyst:
+
+1. **Reads your request** to understand the task and the people who'll use it
+2. **Picks the right frontend** — chat, voice, document, workflow, and more
+3. **Wires in knowledge** — handbooks, documents, datasources, and tools the agent
+   needs
+4. **Applies your policy** — the same governance every request inherits
+
+For example:
+
+> _"As I type a vendor contract, review each clause against our procurement policy,
+> flag risky language, and propose redlines."_
+
+becomes a **Document** agent that reviews clauses in real time, cites your
+procurement policy on every flag, and proposes redlines as suggestions — never
+auto-applying them.
+
+You can keep refining in the full builder: attach more knowledge, change the
+frontend, set policy, and choose how the agent is published.
+
+## Agent types
+
+Every agent gets the interface that fits the work. DeepMyst ships a catalog of
+frontends, each a first-class agent shape:
+
+| Frontend       | Best for                                                        |
+| -------------- | --------------------------------------------------------------- |
+| Chat           | Q&A, copilots, onboarding buddies                               |
+| Voice          | Real-time call coaching and hands-free assistants               |
+| Document       | Track-changes review, drafting, structured briefs               |
+| Workflow       | Multi-step, scheduled, or triggered automations                 |
+| Kanban         | Triage and classification onto a board                          |
+| Form           | Structured intake that drafts an artifact at the end            |
+| Wizard         | Multi-step vetting and guided processes                         |
+| Code Editor    | Diff review against a style guide                               |
+| Spreadsheet    | Working models that watch assumptions and flag anomalies        |
+| Dashboard      | Quick actions and briefs on warehouse data                      |
+| Image Studio   | Posters and social posts in your brand voice                    |
+| Presentation   | Slide decks from a one-line brief                               |
+| Custom App     | Bespoke UI for memos, board decks, and OKRs                     |
+
+## What every agent gets
+
+No matter the frontend, every agent runs on the same stack and inherits the same
+capabilities:
+
+<CardGroup cols="2">
+  <Card title="Memory" icon="brain">
+    A knowledge graph, documents, connected datasources, and run history. The
+    persistent layer every agent reads from.
+  </Card>
+  <Card title="Skills" icon="wrench">
+    Built-in tools, MCP servers, web search, and sub-agents. Bring your own or use
+    the library.
+  </Card>
+  <Card title="Models" icon="microchip">
+    Any of 500+ models behind one API, with optimization, routing, and automatic
+    failover.
+  </Card>
+  <Card title="Governance" icon="shield-halved">
+    Identity, cascading policy, and inline security applied to every run — never
+    bolted on after.
+  </Card>
+</CardGroup>
+
+See [the OS stack](/architecture) for how these layers fit together.
+
+## Every department, every workflow
+
+A single platform produces the right agent for any team:
+
+<CardGroup cols="2">
+  <Card title="Engineering" icon="code">
+    **Bug Triage** (Kanban) auto-classifies alerts onto a severity board.
+    **PR Reviewer** (Code Editor) reviews diffs against your style guide.
+    **Postmortem Intake** (Form) drafts the postmortem from structured input.
+  </Card>
+  <Card title="Growth" icon="bullhorn">
+    **Sales Coach** (Voice) coaches calls in real time and logs to your CRM.
+    **Brand Studio** (Image Studio) creates posts in your brand voice.
+    **Pitch Deck** (Presentation) builds decks from a one-line brief.
+  </Card>
+  <Card title="Operations" icon="gears">
+    **Contract Reviewer** (Document) redlines against your procurement policy.
+    **Onboarding Buddy** (Chat) points new hires to tools, docs, and people.
+    **Vendor Intake** (Wizard) vets vendors and drafts the DPA.
+  </Card>
+  <Card title="Leadership" icon="compass">
+    **Metrics Brief** (Dashboard) acts on warehouse data.
+    **Financial Model** (Spreadsheet) maintains a working model and flags anomalies.
+    **Strategy Copilot** (Custom App) handles memos, board decks, and OKRs.
+  </Card>
+</CardGroup>
+
+## Production-grade by default
+
+Agents built in a sentence still behave like production software:
+
+- **Evaluated** — every output is scored against your rubric before it reaches anyone
+- **RBAC-aware** — responses are scoped to the role of the person using the agent
+- **Replayable** — every run is logged forever and can be replayed on demand
+- **Observable** — inputs, outputs, latency, tokens, and scores are recorded per run
+
+## Skills and tools
+
+Agents do more than answer. Through skills, they take action:
+
+- **Built-in tools** for common operations
+- **MCP servers** — connect any Model Context Protocol server for tool use
+- **Web search** for live information
+- **Sub-agents** — agents that call other agents to break down complex work
+- **Datasources** — query Postgres, ClickHouse, Snowflake, and more
+
+## Deployment
+
+When an agent is ready, publish it the way your team will actually use it:
+
+- **Shareable URL** at `your-org.deepmyst.app/agents/...`
+- **Embed** it into an existing product or internal tool
+- **Public portal** for external-facing agents
+- **Visibility scopes** — organization, department, specific members, or projects
+
+## Build a whole company
+
+<Note>
+  **Company Builder** is in private preview for design partners. [Get in touch](mailto:Sharif@deepmyst.com?subject=DeepMyst%20Company%20Builder%20-%20design%20partner)
+  to join.
+</Note>
+
+Instead of building one agent at a time, you can build an entire AI-native company
+in one job. Pick an industry, answer five questions, and DeepMyst:
+
+- **Interviews your founder** in human language
+- **Designs departments and teams**, flat or hierarchical
+- **Curates an agent catalog** with rationale and consolidation logic — consolidated,
+  not bloated
+- **Builds everything atomically** — folders, tags, knowledge bases, and policies —
+  into a working workspace
+
+## Next steps
+
+<CardGroup cols="2">
+  <Card title="Governance" icon="shield-halved" href="/governance">
+    Set the policy, security, and access rules every agent inherits
+  </Card>
+  <Card title="The OS Stack" icon="layer-group" href="/architecture">
+    See how agents, memory, skills, models, and governance fit together
+  </Card>
+</CardGroup>
